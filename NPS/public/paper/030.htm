@@ -1,0 +1,1178 @@
+﻿<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=ks_c_5601-1987">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:바탕;
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"맑은 고딕";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:KoPubDotum;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:나눔고딕;
+	panose-1:2 13 6 4 0 0 0 0 0 0;}
+@font-face
+	{font-family:KoPubBatang;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@맑은 고딕";}
+@font-face
+	{font-family:"\@바탕";
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"\@나눔고딕";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:3.7pt;
+	margin-left:.5pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:-.5pt;
+	line-height:134%;
+	font-size:12.0pt;
+	font-family:"KoPubDotum",serif;
+	color:#222222;}
+h1
+	{mso-style-link:"제목 1 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.25pt;
+	margin-left:.5pt;
+	text-indent:-.5pt;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:25.0pt;
+	font-family:"KoPubBatang",serif;
+	color:#B93825;
+	font-weight:normal;}
+h2
+	{mso-style-link:"제목 2 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.65pt;
+	margin-left:.5pt;
+	text-indent:-.5pt;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:19.0pt;
+	font-family:"KoPubBatang",serif;
+	color:#B93825;
+	font-weight:normal;}
+h3
+	{mso-style-link:"제목 3 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:2.35pt;
+	margin-left:66.5pt;
+	text-indent:-.5pt;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"KoPubDotum",serif;
+	color:#222222;}
+span.1Char
+	{mso-style-name:"제목 1 Char";
+	mso-style-link:"제목 1";
+	font-family:"KoPubBatang",serif;
+	color:#B93825;}
+span.2Char
+	{mso-style-name:"제목 2 Char";
+	mso-style-link:"제목 2";
+	font-family:"KoPubBatang",serif;
+	color:#B93825;}
+span.3Char
+	{mso-style-name:"제목 3 Char";
+	mso-style-link:"제목 3";
+	font-family:"KoPubDotum",serif;
+	color:#222222;
+	font-weight:bold;}
+.MsoChpDefault
+	{font-family:"맑은 고딕";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:3.0cm 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=KO>
+
+<a id="dc_id24"> </a>
+<div class=WordSection1>
+
+<h1><span lang=EN-US>3</span>장<span lang=EN-US>. </span>흐름 제어</h1>
+
+<p class=MsoNormal style='margin-bottom:11.9pt'>지금까지 우리가 본 파이썬 프로그램들은 전부 맨 윗줄부터
+차례대로 실행되기만 하는 것 들 뿐이었습니다<span lang=EN-US>. </span>이러한 실행 흐름을 바꿀 수 있다면 어떨까요<span
+lang=EN-US>? </span>예를 들어<span lang=EN-US>, </span>프로그램이 현재 시간에 따라<span
+lang=EN-US> 'Good Morning' </span>혹은<span lang=EN-US> 'Good Evening’</span>을 출력하는
+결정을 내리도록 할 수 있게 하면 좋지 않을까요<span lang=EN-US>?</span></p>
+
+<p class=MsoNormal style='margin-bottom:19.5pt'>예상하셨겠지만<span lang=EN-US>, </span>흐름
+제어문을 이용하면 이러한 프로그램을 제작할 수 있습니다<span lang=EN-US>. </span>파이썬에서는<span lang=EN-US>
+if, for, while </span>이라는 세 종류의 흐름 제어문을 사용할 수 있습니다<span lang=EN-US>.</span></p>
+
+<a id="dc_id25"> </a>
+<h2><span lang=EN-US>3.1. if </span>문</h2>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+180%'><span lang=EN-US>if </span>문은 조건을 판별할 때 사용됩니다<span lang=EN-US>. <b>if (</b></span><b>만약<span
+lang=EN-US>)</span></b><span lang=EN-US> </span>조건이 참이라면<span lang=EN-US>, _if </span>블록<span
+lang=EN-US>_</span>의 명령문을 실행하며 <b><span lang=EN-US>else (</span>아니면<span
+lang=EN-US>)</span></b><span lang=EN-US> _else </span>블록<span lang=EN-US>_</span>의
+명령문을 실행합니다<span lang=EN-US>. </span>이 때<span lang=EN-US> else </span>조건절은 생략이 가능합니다<span
+lang=EN-US>. </span><br> 예제<span lang=EN-US> (if.py </span><span lang=EN-US>):</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 108711" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:223.55pt;
+margin-bottom:17.0pt;margin-left:4.75pt;text-align:left;line-height:110%'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=123 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+<span lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>number
+= </span><span lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:
+나눔고딕;color:#009999'>23 </span><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'>guess = int(raw_input(</span><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:#DD1144'>'Enter an integer : '</span><span lang=EN-US style='font-size:
+10.0pt;line-height:110%;font-family:나눔고딕'>))</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:203.55pt;
+margin-bottom:.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>if</span></b><span lang=EN-US style='font-size:10.0pt;line-height:
+127%;font-family:나눔고딕'> guess == number:&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:#999999'># New block starts here </span></b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'Congratulations, you
+guessed it.' </span><span lang=EN-US style='font-size:10.0pt;line-height:127%;
+font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:black'>print</span></b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'> </span><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:#DD1144'>'(but you do not win any prizes!)' </span><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:#999999'># New block ends here </span></b><b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:black'>elif</span></b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'> guess
+&lt; number:&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:#999999'>#
+Another block </span></b><span lang=EN-US style='font-size:10.0pt;line-height:
+127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:black'>print</span></b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'> </span><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:#DD1144'>'No, it is a little higher than that' </span><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:#999999'># You can do whatever you want in a block ... </span></b><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>else</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:198.55pt;
+margin-bottom:15.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'No, it is a little
+lower than that' </span><span lang=EN-US style='font-size:10.0pt;line-height:
+127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:#999999'># you
+must have guessed &gt; number to reach here</span></b></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:243.55pt;
+margin-bottom:.4pt;margin-left:4.75pt;text-align:left;line-height:127%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'Done' </span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:#999999'># This last statement is always executed,</span></b></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:143.55pt;
+margin-bottom:.4pt;margin-left:4.75pt;text-align:left;line-height:127%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:#999999'># after the if statement is executed.</span></b></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:15.2pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 108712" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:.3pt;line-height:107%'>실행 결과<span
+lang=EN-US>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 108713" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>$ python
+if.py</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter an
+integer : 50</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>No, it is
+a little lower than that</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:17.35pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Done</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>$ python
+if.py</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter an
+integer : 22</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>No, it is
+a little higher than that</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:17.35pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Done</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>$ python
+if.py</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:263.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter an
+integer : 23 Congratulations, you guessed it.</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:268.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>(but you
+do not win any prizes!) Done</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:16.6pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 108850" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b><span
+style='color:#792517'>동작 원리</span></b> 이 프로그램에서는<span lang=EN-US>, </span>사용자로부터
+숫자를 입력 받아 그 숫자가 프로그램에 지정된 숫자와 같은 지 확인합니다<span lang=EN-US>. </span>먼저<span
+lang=EN-US> number </span>변수에 원하는 숫자를 넣습니다<span lang=EN-US>. </span>여기서는 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>23</span><span
+lang=EN-US> </span>입니다<span lang=EN-US>. </span>그리고<span lang=EN-US>, </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>raw_input()</span><span
+lang=EN-US> </span>함수를 통해 사용자로부터 입력을 받습니다<span lang=EN-US>. </span>여기서 함수란 재사용 가능한
+프로그램 조각을 의미합니다<span lang=EN-US>. </span>다음 장에서<span lang=EN-US>, </span><span
+style='color:#005398'>함수</span>에 대해 좀 더 자세히 배울 것입니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:13.6pt'>파이썬에 내장된 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>raw_input</span><span lang=EN-US> </span>함수에
+문자열을 넣어 주면 화면에 이 문자열이 출력되며<span lang=EN-US>, </span>또 사용자의 입력을 기다리게 됩니다<span
+lang=EN-US>. </span>이제 사용자가 무엇인가를 입력하고 <b><span lang=EN-US>enter</span></b><span
+lang=EN-US> </span>키를 누르면<span lang=EN-US>, </span><span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>raw_input()</span><span lang=EN-US>
+</span>함수는 사용자가 입력한 것을 문자열의 형태로 반환해 줍니다<span lang=EN-US>. </span>이제 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>int</span><span
+lang=EN-US> </span>를 이용하여 이것을 정수형으로 변환한 뒤<span lang=EN-US>, </span>그 값을 변수<span
+lang=EN-US> `guess`</span>에 대입합니다<span lang=EN-US>. </span>사실 여기에서 사용된<span
+lang=EN-US> `int`</span>는 클래스라고 불리우는 것입니다만<span lang=EN-US>, </span>일단 여기서는 이것이
+문자열을 숫자형으로 변환해 준다는 것만 기억해도 됩니다<span lang=EN-US> (</span>다만 이 때 사용된 문자열은 올바른 숫자를
+포함하고 있어야 합니다<span lang=EN-US>).</span></p>
+
+<p class=MsoNormal style='margin-bottom:13.8pt'>다음으로<span lang=EN-US>, </span>사용자가
+입력한 숫자와 우리가 고른 숫자를 비교합니다<span lang=EN-US>. </span>만약 이 두 숫자가 같으면<span
+lang=EN-US>, </span>성공했다는 메시지를 화면에 출력합니다<span lang=EN-US>. </span>이때 들여쓰기를 이용하여
+어디부터 어디까지 이 블록에 해당하는지를 표시했다는 것을 확인하세요<span lang=EN-US>. </span>이러한 이유로 파이썬에서 들여쓰기는
+굉장히 중요합니다<span lang=EN-US>. </span>앞서 말씀드렸듯이 여러분이<span lang=EN-US> &quot;</span>일관성
+있게 들여 쓰는<span lang=EN-US>&quot; </span>습관에 익숙해져 있었으면 좋겠네요<span lang=EN-US>. </span>이미
+그렇게 하고 계시지요<span lang=EN-US>?</span></p>
+
+<p class=MsoNormal style='margin-bottom:13.6pt'>또한 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>if</span><span lang=EN-US> </span>문의
+뒷부분에 콜론<span lang=EN-US>(</span><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'> : </span><span lang=EN-US>)</span>이 붙어 있는 것을 확인하세요<span
+lang=EN-US>. </span>콜론은 그 다음 줄부터 새로운 블록이 시작된다는 것을 의미합니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:13.6pt'>이제<span lang=EN-US>, </span>사용자가
+입력한 숫자가 우리가 고른 숫자에 비해 작다면<span lang=EN-US>, </span>사용자에게 좀 더 큰 숫자를 입력 하라고 알려 줍니다<span
+lang=EN-US>. </span>여기에 사용된 것은 <span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>elif</span><span lang=EN-US> </span>절인데<span lang=EN-US>, </span>이것은
+두 개의<span lang=EN-US> if </span>문을 중첩해서 사용해야 할 경우<span lang=EN-US> (</span>즉 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>if else`</span><span
+style='font-family:나눔고딕;background:#EEEEEE'>를 쓰고<span lang=EN-US> `else</span></span><span
+lang=EN-US> </span>밑에 또 다시<span lang=EN-US> `if else`</span>를 써야 될 경우<span
+lang=EN-US>) </span>이것을<span lang=EN-US> `if-elif-else`</span>로 한번에 줄여서 쓸 수 있게 해주는
+것입니다<span lang=EN-US>. </span>즉<span lang=EN-US> `elif`</span>는 프로그래밍을 좀 더 쉽게 해주고
+더 많은 들여쓰기를 해야 하는 수고도 줄여 줍니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-left:0cm;text-indent:3.0pt'><span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>elif</span><span lang=EN-US> </span>와
+<span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>else</span><span
+lang=EN-US> </span>문을 사용할 경우<span lang=EN-US>, </span>논리적 명령행의 마지막에는 항상 콜론이 붙어 있어야
+하며 그 다음 줄에는 다른 들여쓰기 단계로 시작되는 새로운 명령문 블록이 시작되어야 합니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:.2pt;line-height:183%'>또한 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>if`</span><span
+style='font-family:나눔고딕;background:#EEEEEE'>문의<span lang=EN-US> if-block</span>안에
+또다른<span lang=EN-US> `if`</span>문을 넣고<span lang=EN-US>, </span>또 넣고 하는 식으로 작성할 수
+도 있습니다<span lang=EN-US>. </span>이 경우 이것을 중첩된<span lang=EN-US> `if</span></span><span
+lang=EN-US> </span>문이라 부릅니다<span lang=EN-US>. </span><span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>elif</span><span lang=EN-US> </span>와
+<span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>else</span><span
+lang=EN-US> </span>절은 생략이 가능합니다<span lang=EN-US>. </span>최소한의 올바른 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>if</span><span
+lang=EN-US> </span>문 사용법은 다음과 같습니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109078" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:313.55pt;
+margin-bottom:.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>if</span></b><span lang=EN-US style='font-size:10.0pt;line-height:
+127%;font-family:나눔고딕'> True:&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'Yes, it is true'</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:16.8pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109079" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:13.85pt;
+margin-left:0cm;text-indent:3.0pt'><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>if</span><span lang=EN-US> - </span><span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>elif</span><span lang=EN-US> - </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>else</span><span
+lang=EN-US> </span>문의 실행이 끝나면<span lang=EN-US>, </span>파이썬은 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>if</span><span lang=EN-US> </span>문을
+담고 있는 블록의 다음 줄부터 실행을 재개합니다<span lang=EN-US>. </span>위 예제의 경우 그 블록은 최상위 블록<span
+lang=EN-US> (</span>프로그램이 실행된 시점의 블록<span lang=EN-US>)</span>이 되며<span
+lang=EN-US>, </span>따라서 그 다음에 실행될 명령문은 <span lang=EN-US style='font-family:
+나눔고딕;background:#EEEEEE'>print 'Done'</span><span lang=EN-US> </span>이 됩니다<span
+lang=EN-US>. </span>그 이후는 프로그램의 끝이므로 실행이 종료되게 됩니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:15.95pt'>지금 여러분이 본 것은 굉장히 간단한 프로그램이지만<span
+lang=EN-US>, </span>이를 통해서도 충분히 많은 것들에 대해 이야기했습니다<span lang=EN-US>. </span>하지만 이
+모든 내용은 상당히 직관적입니다<span lang=EN-US> (</span>만약 여러분이<span lang=EN-US> C/C++ </span>경험이
+있다면 훨씬 더 쉽다고 느껴 지기까지 할 것입니다<span lang=EN-US>). </span>지금 당장은 여러분이 이 모든 내용을 익혀야 하겠지만<span
+lang=EN-US>, </span>몇 번 연습을 해보고 나면 아마 좀 더 편하게 받아들여질 것이며 곧<span lang=EN-US> '</span>자연스럽게<span
+lang=EN-US>' </span>여기게 될 것입니다<span lang=EN-US>.</span></p>
+
+<h3 style='margin-left:52.0pt;text-indent:13.25pt'><span style='width:31px;
+height:41px'><img width=21 height=27 src="./030.files/image003.jpg"></span><span
+lang=EN-US> C/C++ </span>프로그래머를 위한 주석</h3>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:11.25pt;margin-bottom:
+21.2pt;margin-left:65.75pt;line-height:135%'><span style='color:#6F6F6F'>파이썬에는 </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>switch</span><span
+lang=EN-US style='color:#6F6F6F'> </span><span style='color:#6F6F6F'>문이 없습니다<span
+lang=EN-US>. </span>대신 </span><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>if..elif..else</span><span lang=EN-US style='color:#6F6F6F'>
+</span><span style='color:#6F6F6F'>문을 이용하여야 합니다<span lang=EN-US>. (</span>몇몇 상황에서는
+</span><span style='color:#005398'>사전</span><span style='color:#6F6F6F'>을 이용하는 것이
+편리합니다<span lang=EN-US>)</span></span></p>
+
+<a id="dc_id26"> </a>
+<h2 style='margin-bottom:12.0pt'><span lang=EN-US>3.2. while </span>문</h2>
+
+<p class=MsoNormal style=''><span lang=EN-US style='font-family:
+나눔고딕;background:#EEEEEE'>while</span><span lang=EN-US> </span>문은 특정 조건이 참일 경우 계속해서
+블록의 명령문들을 반복하여 실행할 수 있도록 합니다<span lang=EN-US>. </span><span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>while</span><span lang=EN-US> </span>문은<span
+lang=EN-US> *</span>반복문<span lang=EN-US>*</span>의 한 예입니다<span lang=EN-US>. </span>또한
+<span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>while</span><span
+lang=EN-US> </span>문에는 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>else</span><span lang=EN-US> </span>절이 따라올 수 있습니다<span lang=EN-US>. </span>예제<span
+lang=EN-US> (`while.py`</span>로 저장하세요<span lang=EN-US>):</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109081" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:358.55pt;
+margin-bottom:17.0pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>number = </span><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:#009999'>23 </span><span lang=EN-US style='font-size:10.0pt;line-height:
+110%;font-family:나눔고딕'>running = True</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:203.55pt;
+margin-bottom:17.0pt;margin-left:4.75pt;text-align:left;line-height:110%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:black'>while</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'> running:&nbsp;&nbsp;&nbsp;&nbsp; guess =
+int(raw_input(</span><span lang=EN-US style='font-size:10.0pt;line-height:110%;
+font-family:나눔고딕;color:#DD1144'>'Enter an integer : '</span><span lang=EN-US
+style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>))</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:
+나눔고딕;color:black'>if</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'> guess == number:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:208.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:110%;font-family:나눔고딕;color:#DD1144'>'Congratulations, you
+guessed it.' </span><span lang=EN-US style='font-size:10.0pt;line-height:110%;
+font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:#999999'># this causes the while loop to stop </span></b><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;running
+= False&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span lang=EN-US style='font-size:
+10.0pt;line-height:110%;font-family:나눔고딕;color:black'>elif</span></b><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'> guess
+&lt; number:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:0cm;
+margin-bottom:.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'No, it is a little
+higher than that.'</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:373.55pt;
+margin-bottom:.4pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>else</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:168.55pt;
+margin-bottom:.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'No, it is a little
+lower than that.' </span><b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕;color:black'>else</span></b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:238.55pt;
+margin-bottom:.4pt;margin-left:4.75pt;text-align:left;line-height:195%'><span
+lang=EN-US style='font-size:10.0pt;line-height:195%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:195%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:195%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:195%;font-family:나눔고딕;color:#DD1144'>'The while loop is
+over.' </span><span lang=EN-US style='font-size:10.0pt;line-height:195%;
+font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span lang=EN-US
+style='font-size:10.0pt;line-height:195%;font-family:나눔고딕;color:#999999'># Do
+anything else you want to do here </span></b><b><span lang=EN-US
+style='font-size:10.0pt;line-height:195%;font-family:나눔고딕;color:black'>print</span></b><span
+lang=EN-US style='font-size:10.0pt;line-height:195%;font-family:나눔고딕'> </span><span
+lang=EN-US style='font-size:10.0pt;line-height:195%;font-family:나눔고딕;
+color:#DD1144'>'Done'</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:17.5pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109409" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal style='line-height:107%'>실행 결과<span lang=EN-US>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109410" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>$ python
+while.py</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:273.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter an
+integer : 50 No, it is a little lower than that.</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:268.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter an
+integer : 22 No, it is a little higher than that.</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:263.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter an integer
+: 23 Congratulations, you guessed it.</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:313.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>The while
+loop is over. Done</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:17.5pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109411" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:14.7pt'><b><span style='color:#792517'>동작
+원리</span></b>이 프로그램 또한 숫자 알아맞히기 게임입니다만<span lang=EN-US>, </span>더 나은 점은 사용자가 답을
+맞출 때까지 계속 숫자를 입력할 수 있다는 것입니다<span lang=EN-US>. </span>즉<span lang=EN-US>, </span>이전
+섹션에서 작성한 프로그램처럼 다른 숫자를 입력해 보기 위해 프로그램을 또 실행시킬 필요가 없습니다<span lang=EN-US>. </span>이
+예제는<span lang=EN-US> `while`</span>문의 사용법을 잘 보여줍니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:14.7pt'>먼저 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>while</span><span lang=EN-US> </span>루프가
+실행되기 전 변수 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>running`</span><span
+style='font-family:나눔고딕;background:#EEEEEE'>이<span lang=EN-US> `True`</span>로 설정되어
+있으므로<span lang=EN-US>, while </span>문에 딸려 있는<span lang=EN-US> *while </span>블록<span
+lang=EN-US>*</span>이 실행되며<span lang=EN-US> `raw_input`</span>과<span lang=EN-US>
+`if`</span>문이 실행됩니다<span lang=EN-US>. </span>이 블록의 실행이 끝나면<span lang=EN-US>,
+`while</span></span><span lang=EN-US> </span>문은 변수 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>running</span><span lang=EN-US> </span>의
+값을 다시 한번 확인합니다<span lang=EN-US>. </span>이 값 이 참인 경우<span lang=EN-US> while </span>블록을
+다시 한번 실행하며<span lang=EN-US>, </span>거짓인 경우<span lang=EN-US> else </span>블록을 실행한
+뒤 루프를 빠져나와 다음 명령문이 실행됩니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='line-height:107%'><span lang=EN-US style='font-family:
+나눔고딕;background:#EEEEEE'>else</span><span lang=EN-US> </span>블록은 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>while</span><span
+lang=EN-US> </span>루프 조건이 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>False</span><span lang=EN-US> </span>인 경우 실행됩니다<span lang=EN-US>. </span>물론
+루프 조건을 처음으로 확인 했을 경우에도 이 블록이 실행될 수 있습니다<span lang=EN-US>. </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>while</span><span
+lang=EN-US> </span>루프에 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>else</span><span lang=EN-US> </span>절이 딸려 있는 경우<span lang=EN-US>, </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>break </span>명령으로 루프를 강제로
+빠져나오지 않는 이상 이 블록은 항상 실행되게 됩니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:16.75pt'>여기서 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>True</span><span lang=EN-US> </span>와
+<span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>False</span><span
+lang=EN-US> </span>라는 값들은 불리언 형식이라고 불리우며<span lang=EN-US>, </span>각각은 숫자 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>1</span><span
+lang=EN-US> </span>과 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>0</span><span
+lang=EN-US> </span>로 간주됩니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:0cm;
+margin-bottom:2.35pt;margin-left:65.75pt;text-align:left;text-indent:14.25pt;
+line-height:107%'><span style='width:31px;height:41px'><img width=21
+height=27 src="./030.files/image004.jpg"></span><b><span
+lang=EN-US style='font-size:14.0pt;line-height:107%'> C/C++ </span></b><b><span
+style='font-size:14.0pt;line-height:107%'>프로그래머를 위한 주석</span></b></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;
+margin-bottom:0cm;margin-bottom:.0001pt;margin-left:80.75pt;text-align:left;
+text-indent:0cm;line-height:107%'><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>while</span><span lang=EN-US style='color:#6F6F6F'> </span><span
+style='color:#6F6F6F'>루프에 </span><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>else</span><span lang=EN-US style='color:#6F6F6F'> </span><span
+style='color:#6F6F6F'>절이 사용될 수 있음을 기억하세요<span lang=EN-US>.</span></span></p>
+<BR>
+<a id="dc_id27"> </a>
+<h2><span lang=EN-US>3.3. for </span>루프</h2>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:11.85pt;
+margin-left:0cm;text-indent:3.0pt'><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>for..in</span><span lang=EN-US> </span>문은 객체의 열거형<span
+lang=EN-US>(Sequence)</span>을 따라서 반복하여 실행할 때 사용되는 파이썬에 내장된 또 하나의 반복문으로<span
+lang=EN-US>, </span>열거형에 포함된 각 항목을 하나씩 거쳐가며 실행합니다<span lang=EN-US>. </span><span
+style='color:#005398'>열거형</span>에 대해서는 이후에 좀 더 자세히 다룰 것입니다<span lang=EN-US>. </span>일단
+여기서는<span lang=EN-US>, </span>열거형이란 여러 항목이 나열된 어떤 목록을 의미한다고 생각하시기 바랍니다<span
+lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:.2pt;line-height:107%'>예제<span
+lang=EN-US> (`for.py`</span>로 저장하세요<span lang=EN-US>):</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109537" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:black'>for</span></b><span lang=EN-US style='font-size:10.0pt;line-height:
+110%;font-family:나눔고딕'> i </span><b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕;color:black'>in</span></b><span lang=EN-US
+style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'> range(</span><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:#009999'>1</span><span lang=EN-US style='font-size:10.0pt;line-height:
+110%;font-family:나눔고딕'>, </span><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕;color:#009999'>5</span><span lang=EN-US
+style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>):</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:373.55pt;
+margin-bottom:.4pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> i </span><b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:black'>else</span></b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:223.55pt;
+margin-bottom:.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'The for loop is over'</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:15.15pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109538" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:.2pt;line-height:107%'>실행 결과<span
+lang=EN-US>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109539" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>$ python
+for.py</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>1</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>2</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>3</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:348.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>4 The for
+loop is over</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:15.15pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109540" src="./030.files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:11.85pt'><b><span style='color:#792517'>동작
+원리</span></b>이 프로그램은 화면상에 숫자의 나열을 출력합니다<span lang=EN-US>. </span>파이썬에 내장된 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>range</span><span
+lang=EN-US> </span>함수를 통 해 이러한 숫자의 나열을 생성합니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:11.9pt'>여기서는 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>range</span><span lang=EN-US> </span>함수에
+두 개의 숫자를 넣어 주었으며<span lang=EN-US>, </span>그러면 이 함수는 첫 번째 숫자 이상<span lang=EN-US>,
+</span>그리고 두 번째 숫자 미만까지의 숫자 목록<span lang=EN-US>(</span>리스트<span lang=EN-US>)</span>을
+반환합니다<span lang=EN-US> (</span>리스트는 <span style='color:#005398'>자료 구조</span> 챕터에서
+좀 더 자세히 설명할 것입니다<span lang=EN-US>). </span>예를 들어<span lang=EN-US>, </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>range(1,5)</span><span
+lang=EN-US> </span>는 리스트 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>[1, 2, 3, 4]</span><span lang=EN-US> </span>를 반환합니다<span lang=EN-US>. </span>기본적으로<span
+lang=EN-US>, </span><span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>range</span><span
+lang=EN-US> </span>는<span lang=EN-US> 1</span>씩 증가하는 숫자의 리스트를 반환합니다<span
+lang=EN-US>. </span>그러나 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>range</span><span lang=EN-US> </span>에 세 번 째 숫자를 입력하면<span lang=EN-US>,
+</span>이 세 번째 숫자 만큼씩 증가하는 숫자들의 리스트를 얻을 수 있습니다<span lang=EN-US>. </span>예를 들어<span
+lang=EN-US>, </span><span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>range(1,5,2)</span><span
+lang=EN-US> </span>는 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>[1,3]</span><span
+lang=EN-US> </span>을 반환합니다<span lang=EN-US>. </span>반환되는 리스트는 두번째 숫자 <b>미만</b> 까지
+반환 되며<span lang=EN-US>, </span><b>이하</b> 까지 반환되는 것이 아니라는 점을 꼭 기억하세요<span
+lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:11.9pt;
+margin-left:0cm;text-indent:3.0pt'><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>range</span><span lang=EN-US> </span>함수는 호출될 때 해당 범위 내의 모든 숫자를
+한번에 생성하여 반환해 주기 때문에<span lang=EN-US>, </span>매우 큰 숫자 범위를 지정해 주면 시간이 오래 걸릴 수 있습니다<span
+lang=EN-US>. </span>따라서 매우 큰 범위의 숫자를 다룰 때는 한번에 하나씩 숫자를 생성하도록 하는 쪽이 낫습니다<span
+lang=EN-US>. </span>이 경우 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>for</span><span lang=EN-US> </span>문에 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>xrange() </span>를 대신 사용할 수 있습니다<span
+lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>위 예제의 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>for</span><span
+lang=EN-US> </span>루프는 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>range</span><span lang=EN-US> </span>함수에서 반환된 리스트를 따라 반복하여 실행됩니다<span
+lang=EN-US>. </span>즉<span lang=EN-US>, </span><span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>for i in range(1,5)</span><span
+lang=EN-US> </span>는 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>for
+i in [1, 2, 3, 4]</span><span lang=EN-US> </span>와 같습니다<span lang=EN-US>. </span>이것은
+리스트에 들어 있는 각 각의 숫자<span lang=EN-US> (</span>각 숫자는 곧 객체이기도 합니다<span lang=EN-US>)
+</span>를 한번에 하나씩<span lang=EN-US> i </span>에 대입하고<span lang=EN-US>, </span>이렇게 대입된
+각 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>i</span><span
+lang=EN-US> </span>값을 이용하여<span lang=EN-US> for </span>에 딸린 블록을 실행합니다<span
+lang=EN-US>. </span>이 경우<span lang=EN-US>, for </span>블록에서 하는 일은 단순히 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>i</span><span
+lang=EN-US> </span>값을 화면에 출력해 주는 것입니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:12.75pt'>또한<span lang=EN-US>, </span>추가로
+<span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>else</span><span
+lang=EN-US> </span>절을 포함시켜 줄 수 있습니다<span lang=EN-US>. </span>이것이 포함되면<span
+lang=EN-US>, </span><span lang=EN-US style='color:#005398'>break</span><span
+lang=EN-US> </span>문으로 루프를 강제로 빠져나오지 않는 한 루프를 다 돌고 난 뒤에는 이 절이 항상 실행되게 됩니다<span
+lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:14.85pt;
+margin-left:0cm;text-indent:3.0pt'><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>for..in</span><span lang=EN-US> </span>루프는 어떤 종류의 열거형<span
+lang=EN-US>,</span><span lang=EN-US> </span>자료형 과도 함께 사용될 수 있습니다<span
+lang=EN-US>. </span>여기서는 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>range</span><span lang=EN-US> </span>라는 내장 함수를 통해 숫자 리스트를 생성하여 사용하였습니다만<span
+lang=EN-US>, </span>일반적으로는 아무 종류의 객체를 담고 있는 아무 열거형이나 사용이 가능합니다<span lang=EN-US>!
+</span>추후에 이에 대해 좀 더 자세히 다뤄 보겠습니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:11.25pt;margin-bottom:
+0cm;margin-left:84.0pt;margin-bottom:.0001pt;text-indent:-18.75pt;line-height:
+135%'><span style='width:31px;height:41px'><img width=21 height=27
+src="./030.files/image004.jpg"></span><b><span lang=EN-US
+style='font-size:14.0pt;line-height:135%'> C/C++/Java/C# </span></b><b><span
+style='font-size:14.0pt;line-height:135%'>프로그래머를 위한 주석 </span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:11.25pt;margin-bottom:
+0cm;margin-left:64.0pt;margin-bottom:.0001pt;text-indent:0pt;line-height:
+135%'><span style='color:#6F6F6F'>파이썬의 </span><span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>for</span><span lang=EN-US
+style='color:#6F6F6F'> </span><span style='color:#6F6F6F'>루프는<span lang=EN-US>
+C/C++</span>에서 제공하는 </span><span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>for</span><span lang=EN-US style='color:#6F6F6F'> </span><span
+style='color:#6F6F6F'>루프와는 근본적으로 다릅니다<span lang=EN-US>. </span>파이썬의 </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>for</span><span
+lang=EN-US style='color:#6F6F6F'> </span><span style='color:#6F6F6F'>는 차라리<span
+lang=EN-US> C# </span>의 </span><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>foreach</span><span lang=EN-US style='color:#6F6F6F'> </span><span
+style='color:#6F6F6F'>루프와 비슷하며<span lang=EN-US>,  Java 1.5</span>의<span
+lang=EN-US> `for (int i : IntArray)`</span>와 비슷합니다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:11.25pt;margin-bottom:
+4.2pt;margin-left:64.0pt;text-indent:0pt;line-height:135%'><span lang=EN-US
+style='color:#6F6F6F'>C/C </span><span style='color:#6F6F6F'>처럼<span
+lang=EN-US> `for (int i = 0; i &lt; 5; i)` </span>와 같이 사용하고 싶은 경우<span
+lang=EN-US>, </span>파이썬에서는 단순히 </span><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>for i in range(0,5)`</span><span style='font-family:나눔고딕;
+background:#EEEEEE'>라고 입력하기만 하면 됩니다<span lang=EN-US>. </span>보시다시피<span
+lang=EN-US>, </span>파이썬의<span lang=EN-US> `for</span></span><span lang=EN-US
+style='color:#6F6F6F'> </span><span style='color:#6F6F6F'>루프는 더 단순하며<span
+lang=EN-US>, </span>더 보기 좋고 오류가 발생하기도 어렵습니다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:11.25pt;margin-bottom:
+4.2pt;margin-left:0cm;text-indent:18.4pt;line-height:135%'><span lang=EN-US>&nbsp;</span></p>
+
+<a id="dc_id28"> </a>
+<p class=MsoNormal style='margin-top:0cm;margin-right:11.25pt;margin-bottom:
+4.2pt;margin-left:0cm;text-indent:18.4pt;line-height:135%'><span lang=EN-US
+style='font-size:19.0pt;line-height:135%;font-family:"KoPubBatang",serif;
+color:#B93825'>3.4. break </span><span style='font-size:19.0pt;line-height:
+135%;font-family:"KoPubBatang",serif;color:#B93825'>문</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:12.75pt;
+margin-left:0cm;text-indent:3.0pt'><span lang=EN-US style='font-family:나눔고딕;
+background:#EEEEEE'>break</span><span lang=EN-US> </span>문은 루프문을 강제로 빠져나올 때<span
+lang=EN-US>, </span>즉 아직 루프 조건이<span lang=EN-US> `False`</span>가 되지 않았거나 열거형의 끝까지
+루프가 도달하지 않았을 경우에 루프문의 실행을 강제로 정지시키고 싶을 때 사용됩니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:12.1pt'>중요한 점은 만약 여러분이 <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>break</span><span
+lang=EN-US> </span>문을 써서 <span lang=EN-US style='font-family:나눔고딕;background:
+#EEEEEE'>for</span><span lang=EN-US> </span>루프나 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>while</span><span lang=EN-US> </span>루프를
+빠져나왔을 경우<span lang=EN-US>, </span>루프에 딸린 <span lang=EN-US style='font-family:
+나눔고딕;background:#EEEEEE'>else</span><span lang=EN-US> </span>블록은 <b>실행되지 않습니다</b><span
+lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:1.15pt;line-height:107%'>예제<span
+lang=EN-US> (`break.py`):</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109764" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:black'>while</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'> True:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:243.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+s = raw_input(</span><span lang=EN-US style='font-size:10.0pt;line-height:110%;
+font-family:나눔고딕;color:#DD1144'>'Enter something : '</span><span lang=EN-US
+style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>)&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:
+나눔고딕;color:black'>if</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'> s == </span><span lang=EN-US
+style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;color:#DD1144'>'quit'</span><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:233.55pt;
+margin-bottom:.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>break </span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'Length of the string is'</span><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>, len(s) </span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'Done'</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:15.9pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109765" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:1.15pt;line-height:107%'>실행 결과<span
+lang=EN-US>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109766" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>$ python
+break.py</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter
+something : Programming is fun</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Length of
+the string is 18</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter
+something : When the work is done</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:173.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Length of
+the string is 21 Enter something : if you wanna make your work also fun:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:293.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Length of
+the string is 37 Enter something : use Python!</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Length of
+the string is 11</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:318.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter
+something : quit Done</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:15.65pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109264" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.5pt'><b><span style='color:#792517'>동작
+원리</span></b><b><span style='color:#792517'> </span></b>이 프로그램에서는 사용자의 입력을 반복해서
+받고<span lang=EN-US>, </span>입력 받은 문자열의 길이를 출력합니다<span lang=EN-US>. </span>다만 사용자가
+입력한 문자열이 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>'quit'</span><span
+lang=EN-US> </span>일 경우<span lang=EN-US>, `break`</span>문으로 루프를 빠져나와 프로그램을 정지하도록
+특별한 조건을 넣어 주었습니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:71.65pt;margin-bottom:
+.4pt;margin-left:3.0pt;text-indent:-3.0pt;line-height:107%'><span
+style='font-family:"바탕",serif'>입력</span> <span style='font-family:"바탕",serif'>받은</span>
+<span style='font-family:"바탕",serif'>문자열의</span> <span style='font-family:"바탕",serif'>길이는</span>
+<span style='font-family:"바탕",serif'>내장함수</span> <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>len</span><span lang=EN-US> </span><span
+style='font-family:"바탕",serif'>을</span> <span style='font-family:"바탕",serif'>이용하여</span>
+<span style='font-family:"바탕",serif'>계산할</span> <span style='font-family:"바탕",serif'>수</span>
+<span style='font-family:"바탕",serif'>있습니다</span><span lang=EN-US>. </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>break</span><span
+lang=EN-US> </span><span style='font-family:"바탕",serif'>문은</span> <span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>for</span><span
+lang=EN-US> </span><span style='font-family:"바탕",serif'>루프</span> <span
+style='font-family:"바탕",serif'>내에서도</span> <span style='font-family:"바탕",serif'>이용될</span>
+<span style='font-family:"바탕",serif'>수</span> <span style='font-family:"바탕",serif'>있음을</span>
+<span style='font-family:"바탕",serif'>기억하세요</span><span lang=EN-US>.</span><span
+lang=EN-US> </span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<a id="dc_id29"> </a>
+<h2><span lang=EN-US>3.5. continue </span><span style='font-family:"바탕",serif'>문</span></h2>
+
+<p class=MsoNormal style='line-height:107%'><span lang=EN-US style='font-family:
+나눔고딕;background:#EEEEEE'>continue</span><span lang=EN-US> </span>문은 현재 실행중인 루프 블록의
+나머지 명령문들을 실행하지 않고 곧바로 다음 루프로 넘어가도록 합니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:1.15pt;line-height:107%'>예제<span
+lang=EN-US> (`</span><span lang=EN-US style='font-family:"맑은 고딕"'>continue</span><span
+lang=EN-US>.py`):</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109265" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><b><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;
+color:black'>while</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'> True:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:243.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+s = raw_input(</span><span lang=EN-US style='font-size:10.0pt;line-height:110%;
+font-family:나눔고딕;color:#DD1144'>'Enter something : '</span><span lang=EN-US
+style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>)&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:
+나눔고딕;color:black'>if</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:110%;font-family:나눔고딕'> s == </span><span lang=EN-US
+style='font-size:10.0pt;line-height:110%;font-family:나눔고딕;color:#DD1144'>'quit'</span><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:373.55pt;
+margin-bottom:.4pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>break</span></b></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:238.55pt;
+margin-bottom:.25pt;margin-left:4.75pt;text-align:left;line-height:127%'><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>if</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> len(s) &lt; </span><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:#009999'>3</span><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:
+나눔고딕;color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'Too small' </span><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>continue </span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+lang=EN-US style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;
+color:black'>print</span></b><span lang=EN-US style='font-size:10.0pt;
+line-height:127%;font-family:나눔고딕'> </span><span lang=EN-US style='font-size:
+10.0pt;line-height:127%;font-family:나눔고딕;color:#DD1144'>'Input is of sufficient
+length' </span><span lang=EN-US style='font-size:10.0pt;line-height:127%;
+font-family:나눔고딕'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span lang=EN-US
+style='font-size:10.0pt;line-height:127%;font-family:나눔고딕;color:#999999'># Do
+other kinds of processing here...</span></b></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:15.5pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109908" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:.65pt;line-height:107%'>실행 결과<span
+lang=EN-US>:</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:13.0pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109909" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>$ python
+continue.py</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter
+something : a</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Too small</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter
+something : 12</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Too small</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Enter
+something : abc</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:2.15pt;margin-left:4.75pt;text-align:left;line-height:110%'><span
+lang=EN-US style='font-size:10.0pt;line-height:110%;font-family:나눔고딕'>Input is
+of sufficient length</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:43.55pt;
+margin-bottom:0cm;margin-left:4.75pt;margin-bottom:.0001pt;text-align:left;
+line-height:110%'><span lang=EN-US style='font-size:10.0pt;line-height:110%;
+font-family:나눔고딕'>Enter something : quit</span></p>
+
+<p class=MsoNormal align=left style='margin-top:0cm;margin-right:-5.0pt;
+margin-bottom:15.5pt;margin-left:0cm;text-align:left;text-indent:0cm;
+line-height:107%'><span lang=EN-US style='font-size:11.0pt;line-height:107%;
+font-family:"Calibri",sans-serif;color:black'><img width=612 height=1
+id="Group 109910" src="./030.files/image005.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.3pt'><b><span style='color:#792517'>동작
+원리</span></b><b><span style='color:#792517'> </span></b>이 프로그램에서는 사용자로부터 입력을 받습니다만<span
+lang=EN-US>, </span>입력 받은 문자열의 길이가 적어도<span lang=EN-US> 3 </span>이상인 경우에만 문자열을 처리합니다<span
+lang=EN-US>. </span>즉<span lang=EN-US>, </span>내장함수 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>len</span><span lang=EN-US> </span>을
+통해 입력 받은 문자열의 길이를 알아낸 후 그 길이가<span lang=EN-US> 3</span>보다 작으면<span lang=EN-US>,
+</span><span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>continue</span><span
+lang=EN-US> </span>문을 이용하여 그 이하의 명령문을 실행하지 않고 다음 루프로 넘어가도록 합니다<span lang=EN-US>.
+</span>입력 받은 문자열의 길이가<span lang=EN-US> 3 </span>이상일 경우에만 그 이하의 명령문이 실행되고<span
+lang=EN-US>, </span>지정된 작업이 실행됩니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:22.8pt;line-height:107%'><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>continue</span><span
+lang=EN-US> </span>문은 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>for</span><span
+lang=EN-US> </span>루프 내에서도 이용될 수 있음을 기억하세요<span lang=EN-US>.</span></p>
+
+<a id="dc_id30"> </a>
+<h2><span lang=EN-US>3.6. </span>요약</h2>
+
+<p class=MsoNormal style='line-height:165%'>이 챕터에서는 <span lang=EN-US
+style='font-family:나눔고딕;background:#EEEEEE'>if </span><span lang=EN-US>, </span><span
+lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>while </span><span
+lang=EN-US>, </span><span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>for</span><span
+lang=EN-US> </span>세 종류의 흐름 제어문에 대해 배워 보았습니다<span lang=EN-US>. </span>또한 그와 같이 이용할
+수 있는 <span lang=EN-US style='font-family:나눔고딕;background:#EEEEEE'>break</span><span
+lang=EN-US> </span>과<span lang=EN-US> `continue`</span>문에 대해서도 배웠습니다<span
+lang=EN-US>. </span>이 명령문들은 파이썬에서 가장 많이 사용되는 명령문들에 속해 있으며<span lang=EN-US>, </span>따라서
+이 명령문들에 친숙해지는 것은 필수입니다<span lang=EN-US>. </span>다음 단원에서는<span lang=EN-US>, </span>함수를
+만들고 사용하는 방법에 대해 배워 보겠습니다<span lang=EN-US>.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<!-- /////////////////////////////////////////////////////////////////////////-->
+<!-- /////////////////////////////////////////////////////////////////////////-->
+
+<a id="dc_id31"> </a>
+
+<form name="questPanel" method='post'> 
+<h2><span lang=EN-US>3.p. </span> 관련 문제풀기</h2>
+
+<p class=MsoNormal>
+단원 내용의 이해를 위해 관련 문제를 풀어 봅시다. 
+<span lang=EN-US>. </span> 
+
+<br>
+<br>
+<input type="button" class="button-setting" value="관련문제풀기" onclick="parent.doMoveExam('24');"/>
+&nbsp;&nbsp;
+<input type="button" class="button-setting" value="코딩하기" onclick="parent.doMoveCoding('24');"/>
+
+</p>
+
+</form>
+
+<!-- /////////////////////////////////////////////////////////////////////////-->
+<br>
+<br>
+</div>
+
+</body>
+
+</html>

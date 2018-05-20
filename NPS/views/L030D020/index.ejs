@@ -1,0 +1,326 @@
+<% include ../_layout/head.ejs %>
+
+<script src="jquery-1.11.3.js"></script>
+<script src="jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+	function getQval(sel){
+		
+		document.userPanel.action = "/L030D020/index";
+		document.userPanel.submit();
+	}
+	
+	function doAdd(i){
+		document.userPanel.action = "/L030D020/?cmd=add&i="+i;
+		document.userPanel.submit();
+	}
+	
+	function doDelete(i){
+		document.userPanel.action = "/L030D020/?cmd=delete?i="+i;
+		document.userPanel.submit();
+	}
+	
+	function doCreate(i){
+		document.location = "/L030D020/index";
+	}
+	
+	function doUpdate(){
+	
+		var type = $(':input[name=qi_question_type]').val();	 
+		//alert(type);        
+		if(type=="MC") {
+	        var chckd = $(':input[name=is_answer]:radio:checked').val();	         
+	        if( !chckd ){
+	        	alert("정답을 선택하세요");
+	            return false;
+	        }
+		}
+		document.userPanel.action = "/L030D020/Update";
+		document.userPanel.submit();
+	}
+	
+	function goList(){
+		document.location = '/L030D010/list';
+	}
+	
+	function doOpen(){
+		//alert('hey');
+		window.open('/paper/makingRule.htm','popUpWindow','height=700,width=400');
+	}
+	
+	
+</script>
+
+  
+
+
+<table width="100%"  height="100%" border="0" cellspacing="0" cellpadding="0" > 
+	<tr > 
+		<td style="width:100%;height:30px" colspan=2>
+			<span class="view-title">  
+				<SCRIPT language=JavaScript> getMenuName("L030D020"); </SCRIPT> 
+			</span>
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="width:7px">
+			
+		</td>
+		<td style="vertical-align:top;" >
+			<!---------------  USER-PANEL --------------------->
+			<form name="userPanel" method='post' > 
+				
+				<table  border="0"  cellspacing="0" cellpadding="0" >
+					<tr> <td height="7px"> </td> </tr>
+					<tr> 
+						<td>
+							<table  style="width:660px;font-size:16px;" border="0" >
+							<colgroup>
+									<col width="300px" /> 
+									<col width="" /> 
+									<col width="150px" /> 
+							</colgroup>
+							<tr>
+								<!-- 문항유형 선택   -->
+								<td height="20px">
+									<fieldset>
+									    <label for="qType"> <span class="questSelLabel">문항유형 선택  </span> </label>
+									    <select name="qType" id="qType" class="questSel" onchange="getQval(this);"  style="width:100pt;color:gray;"  > 
+											<%-genQuestOption(vItem.qi_question_type)%>
+										</select> 
+									</fieldset>	
+								</td>
+								<td style="color:#6EB081;vertical-align:top;padding-left:20px;padding-top:2px;">
+									<%-message%>
+								</td>
+								<td style="padding-left:20px;">
+									<input name ="openHelp" type="button" class="button-item-detail" style="font-size:9px;"
+								 		   value="문항제작TIP" onclick="doOpen();"  />
+								 	<input name ="backToList" type="button" class="button-item-detail" style="font-size:9px;"
+								 		   value="List돌아가기" onclick="goList();"  />	   
+										
+								</td>
+							</tr>
+							</table>
+							<div class="dialog-modal" style="display: none;">        
+         					</div> 
+						</td>
+					</tr>
+					
+					<tr style="valign:top;">
+					<td style="vertical-align:top;"> 	
+						<!-- /////////////////////////////////////// -->
+					<%	
+						var iWidth = 660; 
+						var sWidth = iWidth+"px";
+						var rightGray = "#C8BCBC";
+					%>
+					 	<table style="width:<%=sWidth %>;border: 1px solid black;padding-left: 10pt;" border=0 cellspacing="0" cellpadding="0" > 
+						 	<colgroup>
+								<col width="10px" /> 
+								<col width="105px" /> 
+								<col width="50px" /> 
+								<col width="150px" /> 
+								<col width="" /> 
+							</colgroup>
+							
+						 	<tr style="height:40pt;" > 
+						 		<td> </td>
+						 		<td>  <!-- 문항 유형 -->
+						 			<span class="questTitle">
+						 				<%-getMenuQuestTitle(vItem.qi_question_type)%>
+						 			</span>  
+						 		</td> 
+					 			<td colspan=2 align="right">  <!-- 교재범위 선정  -->
+						 			<fieldset>
+									    <label for="dc_id"> <span class="mainCategorySelLabel">교재 범위 </span></label>
+									    <select name="dc_id" id="dc_id" class="mainCategorySel" onchange=""  style="width:100pt;color:gray;"  > 
+											<%-genSelCategoryMain(dc_id, mainCategories)%>
+											
+										</select> 
+									</fieldset>	
+								</td> 
+								<td style="padding-left:20px;">  <!-- 난이도 -->
+									<fieldset>
+									    <label for="qi_difficulty"> <span class="mainCategorySelLabel">난이도 </span></label>
+									    <select name="qi_difficulty" id="qi_difficulty" class="mainCategorySel" onchange=""  style="width:30pt;color:gray;"  > 
+											<%-genDifficultyOption(vItem.qi_difficulty)%>
+											
+										</select> 
+									</fieldset>	
+								</td> 
+						 	</tr>
+						 	
+						 	<tr> 	
+						 		<td> </td>
+						 		<!-- 질문 내용  -->
+						 		<td class="content" style="color:black;vertical-align:top;" > 
+						 			&nbsp;질문내용 :  
+						 		</td>
+						 		<td colspan=3 class="content" > 
+						 			<textarea name ="qi_questionnarie" id ="qi_questionnarie" wrap="logical" spellcheck="false"
+						 					  title="문항의 질문 내용을 입력하세요" rows="<%=(vItem.qi_question_type == 'LC')?100:10%>" cols="100"  class="text" 
+						 					  style="width:<%=iWidth-115-20 %>px;height:100px;text-align:left;" ><%=vItem.qi_questionnarie %></textarea>
+						 			<input name ="qi_id" type="hidden"  value="<%=qi_id %>" >
+						 			<input name ="qi_question_type" type="hidden" value="<%=vItem.qi_question_type %>"  >			
+						 			<input name ="qi_total_choice_count" type="hidden" value="<%=vItem.qi_total_choice_count %>"  >			
+						 			
+						 		</td> 
+						 	</tr>
+						 
+					 	<%
+						 	var style = "display:none";
+						 	// start MC
+						 	if(vItem.qi_question_type == "MC" ) {
+						 			style="";							 		
+						 	}		
+						 	// 객관식이 아닐 경우 항목 숨기기 
+					 	%>
+						 	<!-- 객관식(선택) 옵션 -->
+						 	<tr height="20px" style="<%=style %>"> 
+						 		<td>   </td>
+							 	<td  colspan=4 class="content" style="color:black"> 선택 옵션 </td>
+							</tr>	
+							 
+						 	<!-- <table width="100%" > -->
+			 			<%
+				 			var checked;
+				 			for(n=0;n<vItem.qi_total_choice_count;n++) {
+			 			%>
+				 			<tr height="15px" style="<%=style %>"> 
+				 				<td> </td>
+					 			<td style="padding-left:5px;"> 
+						 			<input name ="is_answer" type="radio" id="is_answer<%=n %>" value="<%=n %>" 
+						 				<%=(vList[n].is_answer=='1')?"checked":"" %> />
+						 			<input name ="answer_label" type="text" value="정답체크 <%=n %>번" class="textDisable"  
+						 				   readonly style="border:0px;width:70px;" title="정답인 경우 체크하세요" />
+					 			</td>
+					 			<td colspan=3> 
+						 			<input name ="option_contents<%=n %>"   type="text" class="text"  wrap="logical" spellcheck="false"
+						 				   value="<%-vList[n].option_contents%>" 
+						 				   style="width:<%=iWidth-115-20 %>px;height:20px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding-left:5px"
+						 				   title="보기 내용을 입력하세요"/> 	
+						 		<% if(n!=1 && n==vItem.qi_total_choice_count ) { %>
+						 			<input name ="deleteChoice" type="button" class="inputBTN" 
+						 				   value="옵션삭제" onclick="doDelete(<%=n %>)" />
+						 		<% }%>
+					 			</td> 
+				 			</tr>
+				 			<% } %>
+							 			
+				 		<%	if(n <= vItem.max_choice_count) { %>
+				 			<tr height="15px" style="<%=style %>"> 
+				 				<td > </td> 
+				 				<td > </td> 
+				 				<td colspan=3> 
+				 					<input value="보기추가" onclick="doAdd(<%=n %>)"  type="button" name ="addChoice" class="inputBTN" 
+				 						   style="font-size:9px" /> 
+				 				</td> 
+				 			</tr>
+				 		<%	}	
+				 		// End MC
+				 		%>
+							 			
+						 			<!-- </table> -->
+					 	<%	
+					 		var style="";	
+					 		if(vItem.qi_question_type == "MC") {
+					 			style="display:none";							 		
+					 		}
+					 		var style_LT="";	
+					 		if(vItem.qi_question_type == "MC") {
+					 			style_LT="display:none";							 		
+					 		}
+					 		var tip_desc = (vItem.qi_question_type == "LT")?"입력 예제":"부연설명<BR>(보기)";
+					 	%>
+						 	
+						 	<!-- 입력 예제  -->
+						 	<tr style="padding-bottom:5px;<%=style_LT %>" > 
+						 		<td colspan=5 height="5px"> </td>
+						 	</tr>
+						 	<tr style="padding-bottom:5px;<%=style_LT %>" >
+						 		<td> </td> 
+						 		<td width="100px" class="content" style="vertical-align:top;" > 
+						 			<%-tip_desc%>:  
+						 		</td>
+						 		<td colspan=3 class="content" > 
+						 			<textarea name ="qi_answer_tip" id ="qi_answer_tip" 
+						 					  title="사용자가 작성할 코드의 부분 예제를 입력하세요" rows="10" cols="100"  wrap="logical" spellcheck="false"
+						 					  style="width:<%=iWidth-115-20 %>px;height:100px;text-align:left;" ><%=vItem.qi_answer_tip %></textarea>
+						 		</td> 
+						 	</tr>
+						 	
+						 	<!-- 정답  -->
+						 	<tr style="padding-bottom:5px;<%=style %>" > 
+						 		<td colspan=5 height="5px"> </td>
+						 	</tr>
+						 	<tr style="padding-bottom:5px;<%=style %>" > 
+						 		<td> </td>
+						 		<td width="100px" class="content" style="vertical-align:top;" > 정답 :  </td>
+						 		<td colspan=3 class="content" > 
+						 				<textarea name ="qi_answer" id ="qi_answer" title="질문에 대한  답안을 입력하세요" wrap="logical" spellcheck="false"
+						 						  rows="<%=(vItem.qi_question_type == "LT")?100:10%>" cols="100" 
+						 						  style="width:<%=iWidth-115-20 %>px;height:100px;text-align:left;"  ><%=vItem.qi_answer %></textarea>
+						 		</td> 
+						 	</tr>
+						 	<!-- 비고/해설  -->
+						 	<tr style="padding-bottom:5px;" > 
+						 		<td colspan=5 height="5px"> </td>
+						 	</tr>
+						 	<tr style="padding-bottom:5px;" > 
+						 		<td> </td>
+						 		<td width="100px" class="content" style="vertical-align:top;" > 비고(해설) :  </td>
+						 		<td colspan=3 class="content" > 
+						 				<textarea name ="qi_desc" id ="qi_desc" title="관련 내용을 입력하세요" wrap="logical" spellcheck="false"
+						 						  rows="<%=(vItem.qi_question_type == "LT")?100:10%>" cols="100"  
+						 						  style="width:<%=iWidth-115-20 %>px;height:50px;text-align:left;" ><%=vItem.qi_desc %></textarea>
+						 		</td> 
+						 	</tr>
+						 	<tr style="height:10px;" > 
+						 		<td colspan=5>  </td> 
+						 	</tr>
+					 	</table>
+							 	 
+							 
+						<!-- /////////////////////////////////////// -->
+					</td>
+					</tr>
+					<tr>
+					<td height="40px">
+						&nbsp;
+						<table >
+							<tr>
+								<td>
+									<input type="button"
+									  value="<%=(qi_id==-1)?"문항등록":"문항수정"%>"
+									  style="<%=(qi_id==-1)?"":"color:red"%>"
+									  onclick="doUpdate();" />
+									<% if(qi_id!=-1) { %>
+									<input type="button"
+									  value="신규추가"
+									  style=""
+									  onclick="doCreate();" />
+									<% } %>
+								</td>
+								
+								<td align="left" style="padding-left:20px;vertical-align:middle;">
+																	 
+								</td>
+							</tr>
+						</table>
+					</td>
+					</tr>
+				</table>
+				
+								
+			</form>
+			
+		</td>
+	</tr>
+</table>	
+
+
+
+<% include ../_layout/foot.ejs %>

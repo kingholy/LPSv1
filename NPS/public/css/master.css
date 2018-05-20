@@ -1,0 +1,614 @@
+﻿
+
+@CHARSET "UTF-8";
+
+/* 테그전체 공통설정 */
+body, table, tr, td, select, input, textarea, form {
+	font-family: "맑은고딕","arial"; 
+	font-size: 9pt; color:#666666;
+	
+	text-decoration:none;
+	scrollbar-arrow-color: #000000;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #B4B4B4;
+	scrollbar-darkshadow-color: #EEEEEE;
+	scrollbar-3dlight-color: #EEEEEE;
+	scrollbar-track-color: #FAFAFA;
+	scrollbar-face-color: #EEEEEE;
+
+	margin:0;
+	padding:0;
+}
+
+
+.text-input-label {
+	COLOR: #000000; 
+	FONT-SIZE: 11pt; 
+	FONT-WEIGHT: bold
+}
+/*****************/
+/* 버튼 관련      */
+.table-cell-input-label {
+	FONT-WEIGHT: bold;
+	COLOR: #000000; 
+}
+	
+
+/* 로그인 버튼  */
+.button-log-in {
+	BORDER-BOTTOM: #8c8c8c 1px solid; BORDER-LEFT: #8c8c8c 1px solid; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 7px; PADDING-RIGHT: 7px; LETTER-SPACING: -1px; HEIGHT: 17px; COLOR: #000000; FONT-SIZE: 11px; BORDER-TOP: #8c8c8c 1px solid; BORDER-RIGHT: #8c8c8c 1px solid; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+
+/* 버튼 기본    */
+.button-default {
+	BORDER-BOTTOM: #8c8c8c 1px solid; 
+	BORDER-LEFT: #8c8c8c 1px solid; 
+	PADDING-BOTTOM: 1px; 
+	BACKGROUND-COLOR: #ffffff; 
+	PADDING-LEFT: 7px; 
+	PADDING-RIGHT: 7px; 
+	LETTER-SPACING: -1px; 
+	HEIGHT: 17px; 
+	COLOR: #000000; 
+	FONT-SIZE: 11px; 
+	BORDER-TOP: #8c8c8c 1px solid; 
+	BORDER-RIGHT: #8c8c8c 1px solid; 
+	TEXT-DECORATION: none; 
+	PADDING-TOP: 1px;
+}
+
+
+/* 버튼 기본    */
+.button-item-detail {
+	BORDER-BOTTOM: #8c8c8c 0.5px solid; 
+	BORDER-LEFT: #8c8c8c 0.5px solid; 
+	BORDER-TOP: #8c8c8c 0.5px solid; 
+	BORDER-RIGHT: #8c8c8c 0.5px solid; 
+
+	PADDING-BOTTOM: 1px; 
+	PADDING-TOP: 1px;
+	PADDING-LEFT: 7px; 
+	PADDING-RIGHT: 7px; 
+
+	BACKGROUND-COLOR: #ffffff; 
+	
+	LETTER-SPACING: -1px; 
+	HEIGHT: 17px; 
+	COLOR: #828c96; 
+	FONT-SIZE: 10px; 
+	
+	TEXT-DECORATION: none; 
+	
+}
+
+.button-setting {
+	BORDER-BOTTOM: #8c8c8c 1px solid; 
+	BORDER-LEFT: #8c8c8c 1px solid; 
+	PADDING-BOTTOM: 1px; 
+	BACKGROUND-COLOR: #ffffff; 
+	PADDING-LEFT: 7px; 
+	PADDING-RIGHT: 7px; 
+	LETTER-SPACING: -1px; 
+	HEIGHT: 17px; 
+	COLOR: #8c8c8c; 
+	FONT-SIZE: 11px; 
+	BORDER-TOP: #8c8c8c 1px solid; 
+	BORDER-RIGHT: #8c8c8c 1px solid; 
+	TEXT-DECORATION: none; 
+	PADDING-TOP: 1px;
+}
+
+input.table-cell, SELECT.table-cell {
+	FONT-SIZE: 12px;
+	COLOR: #adadad;
+}
+
+input.table-cell-date {
+	FONT-SIZE: 11px;
+	COLOR: #adadad;
+	width: 100px;
+}
+
+SELECT.table-cell-center {
+	FONT-SIZE: 12px;
+	COLOR: #adadad;
+	width: 100px;
+}
+
+
+SELECT.table-cell-hour {
+	FONT-SIZE: 12px;
+	COLOR: #adadad;
+	width: 76px;
+}
+
+SELECT.table-cell-month {
+	FONT-SIZE: 12px;
+	COLOR: #adadad;
+	width: 76px;
+}
+
+SELECT.table-cell-year {
+	FONT-SIZE: 12px;
+	COLOR: #adadad;
+	width: 100px;
+}
+
+SELECT.view-option {
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	width: 100px;
+}
+
+
+/* input 버튼 기본  */
+
+input {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	COLOR: #000000; 
+	FONT-SIZE: 14px; 
+	FONT-WEIGHT: normal;
+}
+
+SELECT {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+	COLOR: #000000; 
+	FONT-SIZE: 14px; 
+	FONT-WEIGHT: normal;
+}
+
+/****** 표  ******/
+
+.table-col-totalsum-title {
+	COLOR: #000000; 
+	FONT-SIZE: 11px; 	
+	FONT-WEIGHT: normal;
+}
+
+.table-col-center-name {
+	COLOR: #000000; 
+	FONT-SIZE: 11px; 	
+	FONT-WEIGHT: normal;
+}
+
+.table-col-host-name {
+	COLOR: #0000FF; 
+	FONT-SIZE: 11px; 
+	FONT-WEIGHT: normal;
+}
+
+
+/*  표  타이틀   */
+.table-col-header {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #828c96; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #ffffff; 
+	FONT-WEIGHT: normal; PADDING-TOP: 0px;
+	height: 26px;
+		
+}
+
+.table-col-header-border {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #828c96; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #ffffff; 
+	FONT-WEIGHT: normal; PADDING-TOP: 0px;
+	BORDER-BOTTOM: #828c96 0px solid; 
+	BORDER-LEFT: #828c96 1px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 0px solid;	
+	height: 26px;
+}
+
+.table-col-header-group1 {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; 
+	BACKGROUND-COLOR: #aaaaaa; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #ffffff; 
+	FONT-WEIGHT: normal; PADDING-TOP: 0px;
+	height: 26px;
+		
+}
+
+.table-col-header-group2 {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; 
+	BACKGROUND-COLOR: #828282; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #ffffff; 
+	FONT-WEIGHT: normal; PADDING-TOP: 0px;
+	height: 26px;
+}
+
+.table-col-header-group3 {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; 
+	BACKGROUND-COLOR: #D0D0D0; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #ffffff; 
+	FONT-WEIGHT: normal; PADDING-TOP: 0px;
+	height: 26px;
+		
+}
+
+A.table-col-header:link, A.table-col-header:visited, A.table-col-header:hover, A.table-col-header:active {
+	FONT-SIZE: 11px; /* 11px; */
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #828c96; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #ffffff; 
+	FONT-WEIGHT: normal; PADDING-TOP: 0px
+}
+
+
+TR.table-cell {
+	height: 20px;
+}
+
+TD.table-cell-left, TD.table-cell-left1 {
+	BORDER-BOTTOM: #828c96 1px solid; 
+	BORDER-LEFT: #828c96 1px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 0px solid;
+	BACKGROUND-COLOR: #fffff7;
+}
+TD.table-cell-left2 {
+	BORDER-BOTTOM: #828c96 1px solid; 
+	BORDER-LEFT: #828c96 1px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 0px solid;
+	BACKGROUND-COLOR: #f0f1f2;
+}
+
+
+TD.table-cell-right1 {
+	BORDER-BOTTOM: #828c96 1px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 1px solid;
+	BACKGROUND-COLOR: #fffff7;
+padding          : 0pt 3pt 0pt 0pt;
+}
+
+TD.table-cell-right2 {
+	BORDER-BOTTOM: #828c96 1px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 1px solid;
+	BACKGROUND-COLOR: #f0f1f2;
+padding          : 0pt 3pt 0pt 0pt;
+}
+
+TD.table-cell1 {
+	BORDER-BOTTOM: #828c96 1px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 0px solid;
+	BACKGROUND-COLOR: #fffff7;
+padding          : 0pt 3pt 0pt 0pt;
+}
+
+TD.table-cell2 {
+	BORDER-BOTTOM: #828c96 1px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 0px solid;
+	BACKGROUND-COLOR: #f0f1f2;
+	padding          : 0pt 3pt 0pt 0pt;
+}
+
+
+td.table-cell-sum-total {
+	color:red;
+}
+
+
+td.table-cell-sum_sub {
+	color:blue;
+	BACKGROUND-COLOR:#f0f1f2;
+}
+
+
+TD.table-cell-sum {
+	BACKGROUND-COLOR: #f0f1f2;
+}
+
+
+TD.table-cell-top1 {
+	BORDER-BOTTOM: #828c96 0px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 0px solid;
+	BACKGROUND-COLOR: #fffff7;
+padding          : 0pt 3pt 0pt 0pt;
+}
+
+TD.table-cell-top2 {
+	BORDER-BOTTOM: #828c96 0px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 0px solid;
+	BACKGROUND-COLOR: #f0f1f2;
+	padding          : 0pt 3pt 0pt 0pt;
+}
+
+
+TD.table-cell-top-right1 {
+	BORDER-BOTTOM: #828c96 0px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 1px solid;
+	BACKGROUND-COLOR: #fffff7;
+padding          : 0pt 3pt 0pt 0pt;
+}
+
+TD.table-cell-top-right2 {
+	BORDER-BOTTOM: #828c96 0px solid; 
+	BORDER-LEFT: #828c96 0px solid; 
+	BORDER-TOP: #828c96 0px solid; 
+	BORDER-RIGHT: #828c96 1px solid;
+	BACKGROUND-COLOR: #f0f1f2;
+	padding          : 0pt 3pt 0pt 0pt;
+}
+
+
+/* 오른쪽 view      */
+
+/*
+.view-table {
+		MARGIN: 0px;
+		BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-RIGHT: 0px;	BORDER-TOP: 1px;
+		PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px;	PADDING-TOP: 1px;
+}
+*/
+
+TD.divide-border {
+	height: 1px;
+	BACKGROUND-COLOR: #DC143C;
+}
+
+.view-title {
+	font-family: "맑은고딕", "arial"; 
+	TEXT-DECORATION: none;
+	COLOR: #0064CD; 
+	FONT-SIZE: 16px; /* 11px; */
+	FONT-WEIGHT: bold;
+}
+
+/*************************/
+/* 왼쪽 view   */
+
+.right-content-title {
+	FONT-SIZE: 18px
+}
+
+.submenu-header {
+	font-family: "맑은고딕", "굴림","arial"; 
+	LETTER-SPACING: -1px; 
+	TEXT-DECORATION: none;
+	COLOR: #FFFFFF; 
+	FONT-SIZE: 11px; /* 11px; */
+	FONT-WEIGHT: bold
+}
+
+
+.submenu-sel {
+	LETTER-SPACING: -1px; 
+	TEXT-DECORATION: none;
+	COLOR: #000000; 
+	FONT-SIZE: 11px; 
+	FONT-WEIGHT: bold
+}
+
+A.submenu-sel:link, A.submenu-sel:visited , A.submenu-sel:hover, A.submenu-sel:active {
+	LETTER-SPACING: -1px; 
+	TEXT-DECORATION: none;
+	COLOR: #000000; 
+	FONT-SIZE: 11px; 
+	FONT-WEIGHT: bold
+}
+
+
+.submenu {
+	LETTER-SPACING: -1px; 
+	COLOR: #000000; 
+	FONT-SIZE: 11px; 
+	TEXT-DECORATION: none;
+}
+
+A.submenu:link, A.submenu:visited, A.submenu:hover, A.submenu:active {
+	LETTER-SPACING: -1px; 
+	COLOR: #000000; 
+	FONT-SIZE: 11px; 
+	TEXT-DECORATION: none;
+}
+
+/*************************/
+/* 탑 view   */
+
+
+.title {
+	
+	COLOR: #f8d14c; 
+	FONT-SIZE: 16px; 	
+	FONT-WEIGHT: bold;	
+}
+
+.menubar{
+background: rgb(109,109,109);
+border:none;
+border:0px;
+margin:0px;
+padding:0px;
+font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+font-size:16px;
+font-weight:bold;
+}
+
+.menubar ul{
+background: rgb(109,109,109);
+height:50px;
+list-style:none;
+margin:0;
+padding:0;
+}
+
+.menubar li{
+float:left;
+padding:0px;
+}
+
+.menubar li a{
+background: rgb(109,109,109);
+color:#cccccc;
+display:block;
+font-weight:normal;
+line-height:50px;
+margin:0px;
+padding:0px 25px;
+text-align:center;
+text-decoration:none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a{
+background: rgb(71,71,71);
+color:#FFFFFF;
+text-decoration:none;
+}
+
+.menubar li ul{
+background: rgb(109,109,109);
+display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+height:auto;
+padding:0px;
+margin:0px;
+border:0px;
+position:absolute;
+width:200px;
+z-index:200;
+/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul{
+display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {
+background: rgb(109,109,109);
+display:block;
+float:none;
+margin:0px;
+padding:0px;
+width:200px;
+}
+
+.menubar li:hover li a{
+background:none;
+}
+
+.menubar li ul a{
+display:block;
+height:50px;
+font-size:12px;
+font-style:normal;
+margin:0px;
+padding:0px 10px 0px 15px;
+text-align:left;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a{
+background: rgb(71,71,71);
+border:0px;
+color:#ffffff;
+text-decoration:none;
+}
+
+.menubar p{
+clear:left;
+}
+
+
+fieldset {
+		  font-family: "맑은고딕","arial"; 
+		  border: 0;
+		}
+		.label {
+		  font-family: "맑은고딕","arial"; 
+		  display: block;
+		  margin: 5px 0 5px 0;
+		}
+		.content{
+		  font-family: "맑은고딕","arial"; 
+		  font-size:14px;
+		  
+		}
+		
+		.questTitle{
+		  font-family: "맑은고딕","arial"; 
+		  font-size:16px;
+		  
+		  color:#666666;
+		}
+		.questSelLabel{
+		  font-family: "맑은고딕","arial"; 
+		  font-size:16px;
+		  
+		  color:#EC6C31;
+		  
+		  
+		}
+		
+		.listSelLabel{
+		  font-family: "맑은고딕","arial"; 
+		  font-size:12px;
+		  
+		  color:#EC6C31;
+		}
+		
+		.mainCategorySelLabel{
+		  font-family: "맑은고딕","arial"; 
+		  font-size:12px;
+		  
+		  color:#EC6C31;
+		}
+		
+		.mainCategorySel {
+			FONT-SIZE: 12px;
+			COLOR: #adadad;
+			width: 100px;
+			background-color:#F2F7FB;
+			/*background-color:#f0f6e4;*/
+			border: 0.5px solid #617775
+		}
+		
+		.questSel {
+			FONT-SIZE: 12px;
+			COLOR: #adadad;
+			width: 100px;
+			background-color:#F2F7FB;
+			/*background-color:#e6e6e6;*/
+		}
+		
+		.questLabel{
+		  font-family: "굴림","arial"; 
+		  font-size:12px;
+		  color:#666666;
+		}
+		
+		.Label{
+		  font-family: "굴림","arial"; 
+		  font-size:12px;
+		  color:#666666;
+		}
+		
+		.defaultLabel {
+			font-family: "맑은고딕", "arial"; 
+			font-size:12px;
+		    color:#666666;
+		}
+		
+		input.textDisable {
+			font-family: "맑은고딕", "arial"; 
+			font-size:12px;
+		    color:#666666;
+		    display:no;
+		}
+		input.text, textarea.text {
+			font-family: "맑은고딕", "arial"; 
+			font-size:12px;
+		    color:#666666;
+		}
+		
+		
+		.inputBTN {
+		  font-family: "맑은고딕","arial"; 
+		  font-size:12px;
+		}
+		
+		

@@ -1,0 +1,175 @@
+<% include ../_layout/head.ejs %>
+
+<script>
+
+	function doAdd(id){
+		document.location = "/L050D020/add/"+id;
+	}
+	
+	function doDelete(id){
+		document.userPanel.action = "/L050D020/delete/"+id;
+		document.userPanel.submit();
+	}
+	
+</script>	
+
+<table width="100%"  height="100%" border="0" cellspacing="0" cellpadding="0" > 
+	<tr > 
+		<td style="width:100%;height:30px" colspan=2>
+			<span class="view-title">  
+				<SCRIPT language=JavaScript> getMenuName("L050D020"); </SCRIPT> 
+			</span>
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="width:5px">
+			
+		</td>
+		<td style="vertical-align:top;" >
+			<!---------------  USER-PANEL --------------------->
+			<form name="userPanel" method='post' > 
+				
+				<table style="width:660px;font-size:16px;border: 1px solid black;padding-left:20pt;"  border="0"  cellspacing="0" cellpadding="0" >
+					<tr> 
+						<td height="50px" >
+							<table style="width:100%;">  
+								<tr>
+									<td align="right" width="400px">
+										<h2> <%=vTSet.ts_title %> </h2>
+										<input name ="ts_id" type="hidden"  value="<%=ts_id %>" >
+										<input name ="ts_madeby_who" type="hidden" value="<%=vTSet.ts_madeby_who %>"  >			
+							 			<input name ="ts_test_type" type="hidden" value="<%=vTSet.ts_test_type %>"  >			
+							 			
+									</td>
+									<td style="padding-left:20px;vertical-align:middle;" align="center">
+										 제한 시간  <%=vTSet.ts_time_limit%>분 
+									</td>
+								</tr>
+								<tr>
+									<td align="right" width="400px" style="padding-left:20px;vertical-align:top;">
+										
+									</td>
+									<td style="padding-left:20px;vertical-align:top;" height="30px" align="left">
+										반:___ 이름:___________ 
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+										
+					<tr>
+					<td >
+						<!-- /////////////////////////////////////// -->
+					<%	
+						var iWidth = 600; 
+						var sWidth = iWidth+"px";
+						var rightGray = "#C8BCBC";
+					
+						for(i in vItem) {
+					%>
+						<table width="<%=sWidth %>" border="0" cellspacing="0" cellpadding="0" >
+						<colgroup>
+							<col width="30px" /> 
+							<col width="50px" /> 
+							<col width="" /> 
+							<col width="40px" /> 
+						</colgroup>
+						<tr height="10px"  > 
+							<td colspan=4 style="color:black;FONT-WEIGHT: bold"> 
+							</td>
+						</tr>
+						<tr height="30px">
+							<td> </td>
+							<td colspan=2> 
+								<table style="width:99%;padding-bottom: 5pt;border-bottom: 0.5px solid <%=rightGray %>;" border=0 cellspacing="0" cellpadding="0">
+									<tr> 
+										<td style="color:#666666;FONT-WEIGHT: bold;padding:7px;">
+											 <%=parseInt(i)+1%>. <%-vItem[i].qi_questionnarie.replace(/\r\n/g,'<br/>') %> 
+										</td> 
+									</tr>
+								</table>
+							 </td>
+							 <td width="30px">
+								 <input type="button" onclick="doDelete(<%=vItem[i].qs_id%>);" value="삭제" style="font-size:8;"  />
+							 </td>
+						</tr>	
+						<tr height="5px" > 
+							<td colspan=4  >  </td>
+						</tr>
+						<%
+								if(vItem[i].qi_question_type == 'MC') 
+								{
+									for(j in vItem[i].vList){
+						%>
+						<!-- 객관식 옵션 -->
+						<tr style="height:30px">
+							<td> </td>
+							<td> 
+								보기 <%=(parseInt(j)+1) %> 
+							</td>
+							<td colspan=2> 
+								<input name ="option_contents<%=vItem.qi_id%>_<%=j %>" type="text"  class="textDisable"  readonly 
+								style="width:<%=iWidth-50-50 %>px;height:25px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding-left:5px" 
+								title="정답인 경우 체크하세요"
+								value="<%-vItem[i].vList[j].cs_option_contents%>" />
+							</td>
+						</tr>
+						<%			}
+								}
+								else {
+						%>
+						<tr> 
+							<td> </td>
+							<td colspan=3>
+				 				<textarea	name ="my_answer<%=vItem[i].qi_id %>" 
+				 				id ="my_answer<%=vItem[i].qi_id %>" title="질문에 대한 답을 입력하세요" 
+				 				style="width:<%=iWidth-50 %>px;height:120px;text-align:left;padding-left:5px" 
+				 				rows="12" cols="100"  
+				 				wrap="logical" spellcheck="false"
+				 				class="text"><%-vItem[i].qi_answer_tip%></textarea>
+				 			</td>
+				 		</tr>
+				 		<tr height="10px"  > 
+							 
+							<td colspan=4 style="color:black;FONT-WEIGHT: bold"> 
+								
+							</td>
+							 
+						</tr>
+					 	<%
+					 			}
+					 	%>
+						<!-- ////////////////////////////////-->
+						</table>
+					<%
+						}//for_end
+					%>
+					</td>
+				
+					</tr>
+					
+					
+				</table>
+				
+				<table>
+					<tr>
+						<td width="50px"> </td>
+						<td height="40px">
+							
+								 <input type="button" onclick="doAdd(<%=ts_id%>);" value="문항추가"   />
+							 
+						</td>
+					</tr>
+				</table>		
+			
+								
+			</form>
+			
+		</td>
+	</tr>
+</table>	
+
+
+
+<% include ../_layout/foot.ejs %>

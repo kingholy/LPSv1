@@ -1,0 +1,100 @@
+<% include ../_layout/head.ejs %>
+<html>
+<head>
+	<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="/css/zTreeMain.css" type="text/css">
+	<link rel="stylesheet" href="/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="/js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="/js/jquery-1.4.4.min.js"></script>
+	
+	
+	<script type="text/javascript">
+	function doMoveExam(dc_id)
+	{
+		
+		document.userPanel.action = "../L040D020?cmd=exam&dc_id="+dc_id+"&from=study";
+		document.userPanel.submit();
+	}
+	
+	function doMoveCoding(dc_id)
+	{
+		
+		document.userPanel.action = "../L040D030?cmd=exam&dc_id="+dc_id+"&from=study";
+		document.userPanel.submit();
+	}
+	
+	</script>
+		
+	<SCRIPT type="text/javascript">
+		var setting = {
+				view: {
+					showLine: false
+				},
+				data: {
+					simpleData: {
+						enable: true
+					}
+				}
+			};
+		
+		var zNodes =[			
+			<%-zNodes%>
+			 ];
+	
+			
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		});
+	</SCRIPT>
+	
+</head>
+
+<body>
+ <table width="100%"  height="100%" border="0" cellspacing="0" cellpadding="0" > 
+	<tr > 
+		<td>
+			<form name="userPanel" method='post' > 
+			
+				<table  width="100%" border="0">
+					<tr>
+						<td style="width:295px;height:28px;">
+							<span class="view-title">  
+								<SCRIPT language=JavaScript> getMenuName("L040D010"); </SCRIPT> 
+							</span>
+						</td>
+						<td> </td>
+					</tr>
+					<tr>
+						<td style="vertical-align:top;">
+							 <div class="content_wrap" >
+								<div class="zTreeDemoBackground left">
+									<ul id="treeDemo" class="ztree"></ul>
+								</div>
+							</div>
+							<input name ="pViewOption" type="hidden" value="" />
+						</td>
+						<td align=left valign=top style="padding-left:20px" > 
+							
+							<iframe name="sContents" frameborder="0" 
+									src="/paper/010.htm"
+									style="overflow:scroll;height:560px;width:500px;top:0px;left:0px;right:0px;bottom:0px" 
+									height="100%" width="100%" > 
+							</iframe>
+							 
+						</td>
+					</tr>
+				</table>
+				
+									
+			</form>
+			
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
+
+
+<% include ../_layout/foot.ejs %>
