@@ -1,0 +1,266 @@
+<% include ../_layout/head.ejs %>
+
+<script>
+
+	function doGetAnswer()
+	{
+		var chckd;
+	<%
+		var nMc=0;
+		for(nV in vItem) {
+			if(vItem[nV].qi_question_type == 'MC') {
+	%>
+		chckd = $(':input[name=my_answer<%=vItem[nV].qi_id%>]:radio:checked').val();	         
+        if( !chckd ){
+        	alert("<%=parseInt(nV)+1%>번째 문항의 답을 선택하세요 ");
+            return;
+        }
+    <%
+			}
+		}
+	%>
+	
+		document.userPanel.action = "/L050D010/answer";
+		document.userPanel.submit();
+	}
+	
+	
+</script>	
+
+<table width="100%"  height="100%" border="0" cellspacing="0" cellpadding="0" > 
+	<tr > 
+		<td style="width:100%;height:30px" colspan=2>
+			<span class="view-title">  
+				<SCRIPT language=JavaScript> getMenuName("L040D020"); </SCRIPT> 
+			</span>
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="width:5px">
+			
+		</td>
+		<td style="vertical-align:top;" >
+			<!---------------  USER-PANEL --------------------->
+			<form name="userPanel" method='post' > 
+				
+				<table style="width:660px;font-size:16px;border: 1px solid black;padding-left:20pt;"  
+					   border="0"  cellspacing="0" cellpadding="0" >
+					<tr> 
+						<td height="50px" >
+							<table style="width:100%;">  
+								<tr>
+									<td align="right" width="400px">
+										<h2> <%=vTSet.ts_title %> </h2>
+									</td>
+									<td style="padding-left:20px;vertical-align:middle;" align="center">
+										 제한 시간  <%=vTSet.ts_time_limit%>분 
+									</td>
+								</tr>
+								<tr>
+									<td align="right" width="400px" style="padding-left:20px;vertical-align:top;">
+										
+									</td>
+									<td style="padding-left:20px;vertical-align:top;" height="30px" align="left">
+										이름: <%=user.first_name%> <%=user.last_name%> 
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+										
+					<tr>
+					<td >
+						<input name ="tt_id" type="hidden" value="<%=tt_id %>" />
+						<input name ="ts_id" type="hidden" value="<%=ts_id %>" />
+						<input name ="qi_list" type="hidden" value="<%=qi_list %>" />
+						<input name ="ts_title" type="hidden" value="<%=vTSet.ts_title %>" />
+						<input name ="ts_time_limit" type="hidden" value="<%=vTSet.ts_time_limit%>" />
+							
+						<!-- /////////////////////////////////////// -->
+					<%	
+						var iWidth = 600; 
+						var sWidth = iWidth+"px";
+						var rightGray = "#C8BCBC";
+					
+						for(i in vItem) {
+					%>
+						<table width="<%=sWidth %>" border="0" cellspacing="0" cellpadding="0" >
+						<colgroup>
+							<col width="30px" /> 
+							<col width="100px" /> 
+							<col width="" /> 
+						</colgroup>
+						<tr height="10px"  > 
+							<td colspan=3 style="color:black;FONT-WEIGHT: bold"> 
+								<input name ="question_type<%=vItem[i].qi_id %>" type="hidden" value="<%=vItem[i].qi_question_type %>" />
+								<input name ="total_choice_count<%=vItem[i].qi_id %>" type="hidden" value="<%=vItem[i].qi_total_choice_count %>" />
+								<input name ="questionnarie<%=vItem[i].qi_id %>" type="hidden" value="<%=vItem[i].qi_questionnarie %>" />
+							</td>
+						</tr>
+						<tr height="20px">
+							<td>  </td>
+							<td colspan=2> 
+								<table style="width:100%;" border=0 cellspacing="0" cellpadding="0">
+									<tr> 
+										<td style="color:#666666;FONT-WEIGHT: bold">
+											 <%=parseInt(i)+1%>. 질문_
+											 
+										</td> 
+									</tr>
+								</table>
+							 </td>
+						</tr>	
+						<tr > 
+							<td>  </td>
+							<td colspan=2 >  
+								<table style="width:100%;background-color:#FAF9FA;padding-bottom: 5pt;border: 0.5px solid <%=rightGray %>;" border=0 cellspacing="0" cellpadding="0">
+									<tr> 
+										<td style="color:black;padding:7px;">
+											 <%-vItem[i].qi_questionnarie.replace(/\r\n/g,'<br/>') %> 
+										</td> 
+									</tr>
+								</table>
+							</td>
+						</tr>
+					<%	//단답/코드작성 유형이면서 answer_tip내용이 있으면  
+						if(vItem[i].qi_question_type != 'MC' && vItem[i].qi_answer_tip.length>1) 
+						{
+					%>
+						<tr > 
+							<td>  </td>
+							<td colspan=2 >  
+								<table style="width:100%;background-color:#F1F1F1;padding-bottom: 5pt;border: 0.5px solid <%=rightGray %>;" border=0 cellspacing="0" cellpadding="0">
+									<tr> 
+										<td style="color:black;padding:7px;">
+											 <%-vItem[i].qi_answer_tip.replace(/\r\n/g,'<br/>').replace(/\s/g,'&nbsp;') %> 
+										</td> 
+									</tr>
+								</table>
+							</td>
+						</tr>
+					<%	} %>	
+					
+						
+						<tr height="5px" > 
+							<td colspan=4  >  </td>
+						</tr>
+					<%
+						if(vItem[i].qi_question_type == 'MC') 
+						{
+							for(j in vItem[i].vList){
+					%>
+						<!-- 객관식 옵션 -->
+						<tr style="height:30px">
+							<td> </td>
+							<td> 
+								<input name ="my_answer<%=vItem[i].qi_id %>" <%=((parseInt(j)+1)==parseInt(vItem[i].my_answer))?"checked":"" %> 
+									   type="radio" value="<%=parseInt(j)+1 %>"  /> 
+								<label> 보기 <%=parseInt(j)+1 %> </label>
+							</td>
+							<td> 
+								<input name ="option_contents<%=vItem.qi_id%>_<%=j %>" type="text"  class="textDisable"  readonly 
+								style="width:100%;height:25px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding-left:5px" 
+								title="정답인 경우 체크하세요"
+								value="<%-vItem[i].vList[j].cs_option_contents%>" />
+							</td>
+						</tr>
+					<%			}
+						}//if-end MC
+						else {
+							var ans_len = parseInt(vItem[i].qi_answer_length)*15;
+						
+					%>
+						<tr> 
+							<td> </td>
+							<td colspan=2>
+				 				<textarea	name ="my_answer<%=vItem[i].qi_id %>" 
+				 				id ="my_answer<%=vItem[i].qi_id %>" title="질문에 대한 답을 입력하세요" 
+				 				style="width:100%;height:<%=ans_len%>px;text-align:left;" 
+				 				rows="12"
+				 				wrap="logical" spellcheck="false"
+				 				class="text"
+				 				onFocus="if(this.value==' 답을 입력하세요'){this.value=''}" ><%-(vOption=='answer')?vItem[i].my_answer:' 답을 입력하세요'%></textarea>
+				 			</td>
+				 		</tr>
+				 		<tr> 
+							<td height="10px" colspan=3 > </td>
+						</tr>
+				 	<%
+				 		}//else-end
+				 	%>
+				 	
+				 	<%	// 정답 여부 확인 메시지 
+			 			if(vOption=='answer') 
+			 			{
+			 				var yourResult, yourColor, yourResultPlus="";
+							yourResult	= (vAns[i])?"정답":"오답";
+							yourColor	= (vAns[i])?"blue":"red";
+			 				yourResultLong = (vAns[i]==false && vItem[i].qi_question_type=="MC" )?
+								"정답은 "+vItem[i].qi_answer+"번 입니다. ":"";
+				 	%>
+				 	 
+						<tr> 
+							<td height="5px" colspan=3> </td> 
+						</tr>
+						 
+						<tr>
+							<td> </td>
+							<td colspan=2 >
+								<table  
+									style="width:100%;border: 0.5px solid #C8BCBC;border-radius: 5px;padding:5px;BACKGROUND-COLOR:#F3EFEF;" >
+									<tr> 
+										<td>
+											<span style="color:<%=yourColor %>;"><%=yourResult %></span>
+											<br> <span style="color:black;"> 
+													Tip: 
+													<%=yourResultLong %><%=vItem[i].qi_desc %>
+												</span>
+											</td> 
+									</tr>
+								</table>
+							</td>
+						</tr>
+						 
+						
+					<%
+				 		}//if-end vOPtion
+				 	%>
+				 		<tr> 
+							<td height="20px" colspan=3> </td> 
+						</tr>
+					 						
+						</table>
+					<%
+						}//for_end vItem
+					%>
+						<!-- ////////////////////////////////-->
+						
+					</td>
+				
+					</tr>
+					
+					
+				</table>
+				
+				<table>
+					<tr>
+						<td width="50px"> </td>
+						<td height="40px">
+							<input	type="button" value="답안 제출" 
+										onclick="doGetAnswer()" class="inputBTN" style="color:red" />
+							 
+						</td>
+					</tr>
+				</table>		
+			
+								
+			</form>
+			
+		</td>
+	</tr>
+</table>	
+
+
+
+<% include ../_layout/foot.ejs %>
