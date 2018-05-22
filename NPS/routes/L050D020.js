@@ -28,7 +28,6 @@ conn.query(query, function(err, rows) {
 	  }
 });
 
-
 ///////////////////////////////
 //get 1st dc_id
 var dc_id_1st = 0;
@@ -113,7 +112,7 @@ exports.add = function(req, res){
 		"	DATE_FORMAT(qi_update,'%Y-%m-%d') as qi_update " + 
 		"FROM		T_QUESTION_ITEM A   LEFT JOIN	T_QUESTION_RANGE  B    ON A.qi_id=B.qi_id  " + 
 		"WHERE		B.dc_id = "+ dc_id + " " + 
-		"ORDER BY	A.qi_id; "
+		"ORDER BY	qi_question_type, qi_difficulty, A.qi_id; "
 	;
 	
 	console.log("query:",query);
@@ -201,7 +200,7 @@ exports.update = function(req, res){
 				"	DATE_FORMAT(qi_update,'%Y-%m-%d') as qi_update " + 
 				"FROM		T_QUESTION_ITEM A   LEFT JOIN	t_question_set  B    ON A.qi_id=B.qi_id  " + 
 				"WHERE		B.ts_id = "+ ts_id + " " + 
-				"ORDER BY	qi_question_type desc, qi_difficulty, A.qi_id; "
+				"ORDER BY	qi_question_type, qi_difficulty, A.qi_id; "
 			;
 		  //console.log('query1',query1);
 		  console.log('global_title',global_title);

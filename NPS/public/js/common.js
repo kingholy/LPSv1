@@ -39,11 +39,15 @@ function getMenuName(progID)
 	else if(progID == "L040D040") {
 		menu_name = "&nbsp;정규시험 ";
 	}
+	
+	else if(progID == "L050D010") {
+		menu_name = "&nbsp;정규시험";
+	}
 	else if(progID == "L050D020") {
-		menu_name = "&nbsp;정규시험지";
+		menu_name = "&nbsp;정규시험지 작성";
 	}
 	else if(progID == "L050D021") {
-		menu_name = "&nbsp;정규시험지";
+		menu_name = "&nbsp;정규시험지 조회";
 	}	
 	else if(progID == "R010D010") {
 		menu_name = "&nbsp;메인 ";

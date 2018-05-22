@@ -194,7 +194,7 @@
 					 			<td style="padding-left:5px;"> 
 						 			<input name ="is_answer" type="radio" id="is_answer<%=n %>" value="<%=n %>" 
 						 				<%=(vList[n].is_answer=='1')?"checked":"" %> />
-						 			<input name ="answer_label" type="text" value="정답체크 <%=n %>번" class="textDisable"  
+						 			<input name ="answer_label" type="text" value="정답체크 <%=parseInt(n)+1 %>번" class="textDisable"  
 						 				   readonly style="border:0px;width:70px;" title="정답인 경우 체크하세요" />
 					 			</td>
 					 			<td colspan=3> 
@@ -229,18 +229,18 @@
 					 		if(vItem.qi_question_type == "MC") {
 					 			style="display:none";							 		
 					 		}
-					 		var style_LT="";	
+					 		var style_VL="";	
 					 		if(vItem.qi_question_type == "MC") {
-					 			style_LT="display:none";							 		
+					 			style_VL="display:none";							 		
 					 		}
-					 		var tip_desc = (vItem.qi_question_type == "LT")?"입력 예제":"부연설명<BR>(보기)";
+					 		var tip_desc = (vItem.qi_question_type == "VL")?"입력 예제":"부연설명<BR>(보기)";
 					 	%>
 						 	
 						 	<!-- 입력 예제  -->
-						 	<tr style="padding-bottom:5px;<%=style_LT %>" > 
+						 	<tr style="padding-bottom:5px;<%=style_VL %>" > 
 						 		<td colspan=5 height="5px"> </td>
 						 	</tr>
-						 	<tr style="padding-bottom:5px;<%=style_LT %>" >
+						 	<tr style="padding-bottom:5px;<%=style_VL %>" >
 						 		<td> </td> 
 						 		<td width="100px" class="content" style="vertical-align:top;" > 
 						 			<%-tip_desc%>:  
@@ -261,7 +261,7 @@
 						 		<td width="100px" class="content" style="vertical-align:top;" > 정답 :  </td>
 						 		<td colspan=3 class="content" > 
 						 				<textarea name ="qi_answer" id ="qi_answer" title="질문에 대한  답안을 입력하세요" wrap="logical" spellcheck="false"
-						 						  rows="<%=(vItem.qi_question_type == "LT")?100:10%>" cols="100" 
+						 						  rows="<%=(vItem.qi_question_type == "VL")?100:10%>" cols="100" 
 						 						  style="width:<%=iWidth-115-20 %>px;height:100px;text-align:left;"  ><%=vItem.qi_answer %></textarea>
 						 		</td> 
 						 	</tr>
@@ -274,7 +274,7 @@
 						 		<td width="100px" class="content" style="vertical-align:top;" > 비고(해설) :  </td>
 						 		<td colspan=3 class="content" > 
 						 				<textarea name ="qi_desc" id ="qi_desc" title="관련 내용을 입력하세요" wrap="logical" spellcheck="false"
-						 						  rows="<%=(vItem.qi_question_type == "LT")?100:10%>" cols="100"  
+						 						  rows="<%=(vItem.qi_question_type == "VL")?100:10%>" cols="100"  
 						 						  style="width:<%=iWidth-115-20 %>px;height:50px;text-align:left;" ><%=vItem.qi_desc %></textarea>
 						 		</td> 
 						 	</tr>

@@ -10,6 +10,7 @@ var express = require('express')
 	,L040D020 = require('./routes/L040D020')
 	,L030D010 = require('./routes/L030D010')
 	,L030D020 = require('./routes/L030D020')
+	,L050D010 = require('./routes/L050D010')
 	,L050D020 = require('./routes/L050D020')
 	,L050D021 = require('./routes/L050D021')
 	,http = require('http')
@@ -101,6 +102,10 @@ app.get('/L040D020/list', L040D020.list);
 app.get('/L040D020/exam/:dc_id', L040D020.exam);
 app.post('/L040D020/answer', L040D020.answer);
 
+app.get('/L050D010', L050D010.list);
+app.get('/L050D010/list', L050D010.list);
+app.get('/L050D010/exam/:ts_id', L050D010.exam);
+app.post('/L050D010/answer', L050D010.answer);
 
 app.get('/L050D020', L050D020.create);
 app.get('/L050D020/create', L050D020.create);
@@ -130,8 +135,8 @@ http.createServer(app).listen(app.get('port'), function(){
 
 ///////// functions //////////////
 app.locals.genQuestOption = function(selectedMenu){
-	// 객관식: 'MC', 단답형: 'ST', 주관식: 'LT'
-	var MenuQuestValueList = ['MC', 'ST', 'LT'];
+	// 객관식: 'MC', 단답형: 'ST', 주관식: 'VL'
+	var MenuQuestValueList = ['MC', 'ST', 'VL'];
 	var MenuQuestNameList = ["객관식 문항","단답형 문항","코드작성 문항"];
 	var rst="", value, name, sel;
 	console.log('[genQuestOption]selectedMenu',selectedMenu);
@@ -190,14 +195,14 @@ app.locals.getTestTypeOption = function(value){
 app.locals.getMenuQuestTitle = function(value){
 	if(value=="MC") return "객관식 문항";
 	if(value=="ST") return "단답형 문항";
-	if(value=="LT") return "코드작성 문항";
+	if(value=="VL") return "코드작성 문항";
 	return "";
 };
 
 app.locals.getMenuQuestName = function(value){
 	if(value=="MC") return "객관식";
 	if(value=="ST") return "단답형";
-	if(value=="LT") return "코드작성";
+	if(value=="VL") return "코드작성";
 	return "";
 };
 

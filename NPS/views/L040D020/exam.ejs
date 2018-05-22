@@ -4,6 +4,22 @@
 
 	function doGetAnswer()
 	{
+		var chckd;
+	<%
+		var nMc=0;
+		for(nV in vItem) {
+			if(vItem[nV].qi_question_type == 'MC') {
+	%>
+		chckd = $(':input[name=my_answer<%=vItem[nV].qi_id%>]:radio:checked').val();	         
+        if( !chckd ){
+        	alert("<%=parseInt(nV)+1%>번째 답을 선택하세요 ");
+            return;
+        }
+    <%
+			}
+		}
+	%>
+	
 		document.userPanel.action = "/L040D020/answer";
 		document.userPanel.submit();
 	}
@@ -37,7 +53,8 @@
 			<!---------------  USER-PANEL --------------------->
 			<form name="userPanel" method='post' > 
 				
-				<table style="width:660px;font-size:16px;border: 1px solid black;padding-left:20pt;"  border="0"  cellspacing="0" cellpadding="0" >
+				<table style="width:660px;font-size:16px;border: 1px solid black;padding-left:20pt;"  
+					   border="0"  cellspacing="0" cellpadding="0" >
 					<tr> 
 						<td height="50px" >
 							<span class="questSelLabel"  >
@@ -66,11 +83,9 @@
 							<col width="30px" /> 
 							<col width="100px" /> 
 							<col width="" /> 
-							<col width="40px" /> 
 						</colgroup>
 						<tr height="10px"  > 
-							<td colspan=4 style="color:black;FONT-WEIGHT: bold"> 
-								<input name ="answer_tip<%=vItem[i].qi_id %>" type="hidden" value="<%=vItem[i].qi_answer_tip %>" />
+							<td colspan=3 style="color:black;FONT-WEIGHT: bold"> 
 								<input name ="question_type<%=vItem[i].qi_id %>" type="hidden" value="<%=vItem[i].qi_question_type %>" />
 								<input name ="total_choice_count<%=vItem[i].qi_id %>" type="hidden" value="<%=vItem[i].qi_total_choice_count %>" />
 								<input name ="questionnarie<%=vItem[i].qi_id %>" type="hidden" value="<%=vItem[i].qi_questionnarie %>" />
@@ -78,7 +93,7 @@
 						</tr>
 						<tr height="20px">
 							<td>  </td>
-							<td colspan=3> 
+							<td colspan=2> 
 								<table style="width:100%;" border=0 cellspacing="0" cellpadding="0">
 									<tr> 
 										<td style="color:#666666;FONT-WEIGHT: bold">
@@ -91,7 +106,7 @@
 						</tr>	
 						<tr > 
 							<td>  </td>
-							<td colspan=3 >  
+							<td colspan=2 >  
 								<table style="width:100%;background-color:#FAF9FA;padding-bottom: 5pt;border: 0.5px solid <%=rightGray %>;" border=0 cellspacing="0" cellpadding="0">
 									<tr> 
 										<td style="color:black;padding:7px;">
@@ -99,9 +114,27 @@
 										</td> 
 									</tr>
 								</table>
-					
 							</td>
 						</tr>
+					<%	//단답/코드작성 유형이면서 answer_tip내용이 있으면  
+						if(vItem[i].qi_question_type != 'MC' && vItem[i].qi_answer_tip.length>1) 
+						{
+					%>
+						<tr > 
+							<td>  </td>
+							<td colspan=2 >  
+								<table style="width:100%;background-color:#F1F1F1;padding-bottom: 5pt;border: 0.5px solid <%=rightGray %>;" border=0 cellspacing="0" cellpadding="0">
+									<tr> 
+										<td style="color:black;padding:7px;">
+											 <%-vItem[i].qi_answer_tip.replace(/\r\n/g,'<br/>') %> 
+										</td> 
+									</tr>
+								</table>
+							</td>
+						</tr>
+					<%	} %>	
+					
+						
 						<tr height="5px" > 
 							<td colspan=4  >  </td>
 						</tr>
@@ -114,13 +147,13 @@
 						<tr style="height:30px">
 							<td> </td>
 							<td> 
-								<input name ="my_answer<%=vItem[i].qi_id %>" <%=((parseInt(i)+1)==parseInt(vItem[i].my_answer))?"checked":"" %> 
+								<input name ="my_answer<%=vItem[i].qi_id %>" <%=((parseInt(j)+1)==parseInt(vItem[i].my_answer))?"checked":"" %> 
 									   type="radio" value="<%=parseInt(j)+1 %>"  /> 
 								<label> 보기 <%=parseInt(j)+1 %> </label>
 							</td>
-							<td colspan=2> 
+							<td> 
 								<input name ="option_contents<%=vItem.qi_id%>_<%=j %>" type="text"  class="textDisable"  readonly 
-								style="width:<%=iWidth-50-50 %>px;height:25px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding-left:5px" 
+								style="width:100%;height:25px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding-left:5px" 
 								title="정답인 경우 체크하세요"
 								value="<%-vItem[i].vList[j].cs_option_contents%>" />
 							</td>
@@ -128,55 +161,66 @@
 					<%			}
 						}//if-end MC
 						else {
+							var ans_len = parseInt(vItem[i].qi_answer_length)*15;
+						
 					%>
 						<tr> 
 							<td> </td>
-							<td colspan=3>
+							<td colspan=2>
 				 				<textarea	name ="my_answer<%=vItem[i].qi_id %>" 
 				 				id ="my_answer<%=vItem[i].qi_id %>" title="질문에 대한 답을 입력하세요" 
-				 				style="width:100%;height:120px;text-align:left;padding-left:5px" 
-				 				rows="12" cols="100"  
+				 				style="width:100%;height:<%=ans_len%>px;text-align:left;" 
+				 				rows="12"
 				 				wrap="logical" spellcheck="false"
-				 				class="text"><%-vItem[i].my_answer%></textarea>
+				 				class="text"
+				 				onFocus="if(this.value==' 답을 입력하세요'){this.value=''}" ><%-(vOption=='answer')?vItem[i].my_answer:' 답을 입력하세요'%></textarea>
 				 			</td>
 				 		</tr>
 				 		<tr> 
-							<td height="10px" colspan=4 style="color:black;FONT-WEIGHT: bold"> </td>
+							<td height="10px" colspan=3 > </td>
 						</tr>
 				 	<%
 				 		}//else-end
 				 	%>
 				 	
-				 	<%
+				 	<%	// 정답 여부 확인 메시지 
 			 			if(vOption=='answer') 
 			 			{
 			 				var yourResult, yourColor, yourResultPlus="";
-							yourResult	= (vItem[i].isCorrect)?"정답":"오답";
-							yourColor	= (vItem[i].isCorrect)?"blue":"red";
-			 				yourResultPlus = (vItem[i].isCorrect==false && vItem[i].qi_question_type=="MC" )?
-								"정답은 "+data.getAnswer()+"번 입니다. ":"";
+							yourResult	= (vAns[i])?"정답":"오답";
+							yourColor	= (vAns[i])?"blue":"red";
+			 				yourResultLong = (vAns[i]==false && vItem[i].qi_question_type=="MC" )?
+								"정답은 "+vItem[i].qi_answer+"번 입니다. ":"";
 				 	%>
+				 	 
 						<tr> 
-							<td height="5px" colspan=4> </td> 
+							<td height="5px" colspan=3> </td> 
 						</tr>
+						 
 						<tr>
 							<td> </td>
-							<td colspan=3 >
-								<table  style="width:<%=iWidth-45%>px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding:5px;BACKGROUND-COLOR:#F3EFEF;" >
-									<tr> <td >
-										<span style="color:<%=yourColor %>;"><%=yourResult %></span>
-										<br> <span style="color:black;"> Tip: <%=yourResultPlus %><%=vItem[i].qi_answer_tip %></span>
-									</td> </tr>
+							<td colspan=2 >
+								<table  
+									style="width:100%;border: 0.5px solid #C8BCBC;border-radius: 5px;padding:5px;BACKGROUND-COLOR:#F3EFEF;" >
+									<tr> 
+										<td>
+											<span style="color:<%=yourColor %>;"><%=yourResult %></span>
+											<br> <span style="color:black;"> 
+													Tip: 
+													<%=yourResultLong %><%=vItem[i].qi_desc %>
+												</span>
+											</td> 
+									</tr>
 								</table>
 							</td>
 						</tr>
-			
-							
+						 
+						
 					<%
 				 		}//if-end vOPtion
 				 	%>
 				 		<tr> 
-							<td height="20px" colspan=4> </td> 
+							<td height="20px" colspan=3> </td> 
 						</tr>
 					 						
 						</table>
@@ -196,8 +240,8 @@
 					<tr>
 						<td width="50px"> </td>
 						<td height="40px">
-							
-								 <input type="button" onclick="doAdd(<%=ts_id%>);" value="문항추가"   />
+							<input	type="button" value="답안 제출" 
+										onclick="doGetAnswer()" class="inputBTN" style="color:red" />
 							 
 						</td>
 					</tr>

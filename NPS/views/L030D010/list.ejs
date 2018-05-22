@@ -11,6 +11,13 @@
 		document.userPanel.action = "/L030D010/list";
 		document.userPanel.submit();
 	}
+	
+	function doSearch()
+	{
+		document.userPanel.action = "/L030D010/list";
+		document.userPanel.submit();
+	}
+	
 </script>
 		
 <form name="userPanel" method='post'> 
@@ -52,8 +59,8 @@
 							</select> 
 						</td> 
 						<td align="left">  
-							<input type="button" class="button-default" value="조회" onclick="javascript:doSearch();"/>
-							<input type="button" class="button-default" value="엑셀" onclick="javascript:saveForm();"/>
+							<input type="button" class="button-default" value="조회" onclick="doSearch();"/>
+							<input type="button" class="button-default" value="엑셀" onclick="saveForm();"/>
 						</td>
 						<td >  </td>
 					</tr>

@@ -75,14 +75,17 @@
 							<col width="" /> 
 							<col width="40px" /> 
 						</colgroup>
-						<tr height="10px"  > 
-							<td colspan=4 style="color:black;FONT-WEIGHT: bold"> 
+						<tr height="20px"  > 
+							<td> </td>
+							<td colspan=3 style="color:#666666;FONT-WEIGHT: bold" align="right" > 
+								<input type="button" onclick="doDelete(<%=vItem[i].qs_id%>);" 
+									   value="삭제" style="width:30px;font-size:8;border: 0.5px solid #C8BCBC;border-radius: 1px;"  />
 							</td>
 						</tr>
 						<tr height="30px">
 							<td> </td>
-							<td colspan=2> 
-								<table style="width:99%;padding-bottom: 5pt;border-bottom: 0.5px solid <%=rightGray %>;" border=0 cellspacing="0" cellpadding="0">
+							<td colspan=3> 
+								<table style="width:100%;background-color:#FAF9FA;padding-bottom: 5pt;border: 0.5px solid <%=rightGray %>;" border=0 cellspacing="0" cellpadding="0">
 									<tr> 
 										<td style="color:#666666;FONT-WEIGHT: bold;padding:7px;">
 											 <%=parseInt(i)+1%>. <%-vItem[i].qi_questionnarie.replace(/\r\n/g,'<br/>') %> 
@@ -90,9 +93,7 @@
 									</tr>
 								</table>
 							 </td>
-							 <td width="30px">
-								 <input type="button" onclick="doDelete(<%=vItem[i].qs_id%>);" value="삭제" style="font-size:8;"  />
-							 </td>
+							 
 						</tr>	
 						<tr height="5px" > 
 							<td colspan=4  >  </td>
@@ -110,7 +111,7 @@
 							</td>
 							<td colspan=2> 
 								<input name ="option_contents<%=vItem.qi_id%>_<%=j %>" type="text"  class="textDisable"  readonly 
-								style="width:<%=iWidth-50-50 %>px;height:25px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding-left:5px" 
+								style="width:100%;height:25px;border: 0.5px solid #C8BCBC;border-radius: 5px;padding-left:5px" 
 								title="정답인 경우 체크하세요"
 								value="<%-vItem[i].vList[j].cs_option_contents%>" />
 							</td>
@@ -124,7 +125,7 @@
 							<td colspan=3>
 				 				<textarea	name ="my_answer<%=vItem[i].qi_id %>" 
 				 				id ="my_answer<%=vItem[i].qi_id %>" title="질문에 대한 답을 입력하세요" 
-				 				style="width:<%=iWidth-50 %>px;height:120px;text-align:left;padding-left:5px" 
+				 				style="width:100%;height:120px;text-align:left;padding-left:5px" 
 				 				rows="12" cols="100"  
 				 				wrap="logical" spellcheck="false"
 				 				class="text"><%-vItem[i].qi_answer_tip%></textarea>
@@ -140,6 +141,9 @@
 					 	<%
 					 			}
 					 	%>
+					 	<tr> 
+							<td height="10px" colspan=4> </td> 
+						</tr>
 						<!-- ////////////////////////////////-->
 						</table>
 					<%
