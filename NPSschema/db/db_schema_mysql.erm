@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>0.8</zoom>
 	<x>0</x>
-	<y>468</y>
+	<y>0</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -73,7 +73,7 @@
 			</export_ddl_setting>
 			<export_excel_setting>
 				<category_id>null</category_id>
-				<output_path>sql\db_schema_oracle.xls</output_path>
+				<output_path>sql\db_schema_mysql.xls</output_path>
 				<template></template>
 				<template_path></template_path>
 				<used_default_template_lang>en</used_default_template_lang>
@@ -89,7 +89,7 @@
 				<is_open_after_saved>true</is_open_after_saved>
 			</export_html_setting>
 			<export_image_setting>
-				<output_file_path>sql\db_schema_oracle.png</output_file_path>
+				<output_file_path>sql\db_schema_mysql.png</output_file_path>
 				<category_dir_path></category_dir_path>
 				<with_category_image>true</with_category_image>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2018-02-22 12:22:23</creation_date>
-			<updated_date>2018-05-18 03:57:50</updated_date>
+			<updated_date>2018-05-22 07:14:44</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -695,7 +695,7 @@
 			<binary>false</binary>
 			<args></args>
 			<char_semantics>false</char_semantics>
-			<description>선다형(객관식): &apos;MC&apos;, 단답형: &apos;ST&apos;, 논술형(주관식): &apos;QL&apos;</description>
+			<description>선다형(객관식): &apos;MC&apos;, 단답형: &apos;ST&apos;, 논술형(주관식): &apos;VL&apos;</description>
 			<logical_name>문항_유형(선다형..)</logical_name>
 			<physical_name>qi_question_type</physical_name>
 			<type>varchar(n)</type>
@@ -1585,10 +1585,10 @@
 			<connections>
 				<relation>
 					<id>2</id>
-					<source>16</source>
+					<source>15</source>
 					<target>8</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
+						<source_xp>19</source_xp>
+						<source_yp>0</source_yp>
 						<target_xp>-1</target_xp>
 						<target_yp>-1</target_yp>
 						<color>
@@ -1607,10 +1607,10 @@
 				</relation>
 				<relation>
 					<id>3</id>
-					<source>15</source>
+					<source>16</source>
 					<target>8</target>
-						<source_xp>19</source_xp>
-						<source_yp>0</source_yp>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
 						<target_xp>-1</target_xp>
 						<target_yp>-1</target_yp>
 						<color>
@@ -1671,7 +1671,7 @@
 				<normal_column>
 					<id>9</id>
 					<referenced_column>61</referenced_column>
-					<relation>2</relation>
+					<relation>3</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1705,7 +1705,7 @@
 				<normal_column>
 					<id>10</id>
 					<referenced_column>51</referenced_column>
-					<relation>3</relation>
+					<relation>2</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1765,11 +1765,11 @@
 			<connections>
 				<relation>
 					<id>4</id>
-					<source>15</source>
+					<source>12</source>
 					<target>9</target>
-						<source_xp>49</source_xp>
-						<source_yp>100</source_yp>
-						<target_xp>83</target_xp>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>61</target_xp>
 						<target_yp>0</target_yp>
 						<color>
 							<r>0</r>
@@ -1787,11 +1787,11 @@
 				</relation>
 				<relation>
 					<id>5</id>
-					<source>12</source>
+					<source>15</source>
 					<target>9</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
-						<target_xp>61</target_xp>
+						<source_xp>49</source_xp>
+						<source_yp>100</source_yp>
+						<target_xp>83</target_xp>
 						<target_yp>0</target_yp>
 						<color>
 							<r>0</r>
@@ -1851,7 +1851,7 @@
 				<normal_column>
 					<id>12</id>
 					<referenced_column>51</referenced_column>
-					<relation>4</relation>
+					<relation>5</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1885,7 +1885,7 @@
 				<normal_column>
 					<id>13</id>
 					<referenced_column>26</referenced_column>
-					<relation>5</relation>
+					<relation>4</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2168,10 +2168,10 @@
 			<connections>
 				<relation>
 					<id>7</id>
-					<source>14</source>
+					<source>15</source>
 					<target>11</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
+						<source_xp>22</source_xp>
+						<source_yp>0</source_yp>
 						<target_xp>-1</target_xp>
 						<target_yp>-1</target_yp>
 						<color>
@@ -2190,10 +2190,10 @@
 				</relation>
 				<relation>
 					<id>8</id>
-					<source>15</source>
+					<source>14</source>
 					<target>11</target>
-						<source_xp>22</source_xp>
-						<source_yp>0</source_yp>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
 						<target_xp>-1</target_xp>
 						<target_yp>-1</target_yp>
 						<color>
@@ -2254,7 +2254,7 @@
 				<normal_column>
 					<id>20</id>
 					<referenced_column>45</referenced_column>
-					<relation>7</relation>
+					<relation>8</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2288,7 +2288,7 @@
 				<normal_column>
 					<id>21</id>
 					<referenced_column>51</referenced_column>
-					<relation>8</relation>
+					<relation>7</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3177,7 +3177,7 @@
 			<connections>
 				<relation>
 					<id>9</id>
-					<source>13</source>
+					<source>16</source>
 					<target>14</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -3199,7 +3199,7 @@
 				</relation>
 				<relation>
 					<id>10</id>
-					<source>16</source>
+					<source>13</source>
 					<target>14</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -3263,7 +3263,7 @@
 				<normal_column>
 					<id>46</id>
 					<referenced_column>61</referenced_column>
-					<relation>10</relation>
+					<relation>9</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3297,7 +3297,7 @@
 				<normal_column>
 					<id>47</id>
 					<referenced_column>34</referenced_column>
-					<relation>9</relation>
+					<relation>10</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>응시자_아이디</logical_name>

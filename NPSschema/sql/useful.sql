@@ -27,4 +27,74 @@ SELECT
  FROM T_BOOK_CATEGORIES
 
 => '1', '010', '010000', '1. ±‚√ ',  ' ',  '1', '0'
+////////////////////////////////
+
+UPDATE mysql.user SET plugin = 'mysql_native_password'
+WHERE User = 'lmsuser' AND Host = '%' ;
+
+FLUSH PRIVILEGES;
+////////////////////////////////
+use mysql; 
+update mysql.user  set plugin='mysql_native_password' where user='root'; 
+FLUSH PRIVILEGES;
+
+SELECT plugin FROM mysql.user WHERE User = 'lmsuser';
+
+GRANT ALL PRIVILEGES ON *.* TO 'lpsuser'@'localhost' IDENTIFIED BY PASSWORD 'mylps' WITH GRANT OPTION;
+
+////////////////////////////////
+
+show global variables like 'log_bin_trust_function_creators';
+SET GLOBAL log_bin_trust_function_creators='ON';
+
+////////////////////////////////
+
+ delimiter $$
+CREATE FUNCTION getRowCount( inputdata varchar(2048) )
+RETURNS INT
+BEGIN
+    declare q INT  ;
+    set q = (length(inputdata) - length(replace(inputdata,'\r\n','')))/length('\r\n');
+    RETURN(q+1);
+END
+$$ delimiter ;
+
+
+/////////////////////////////////
+
+ delimiter $$
+CREATE FUNCTION getTakeAt( inputdata INT )
+RETURNS TIMESTAMP
+BEGIN
+    declare q TIMESTAMP  ;
+    set q = (select create_at from t_test_set where ts_id = inputdata);
+    RETURN(q);
+END
+$$ delimiter ;
+
+
+
+ delimiter $$
+CREATE FUNCTION getCountItem( inputdata INT )
+RETURNS INT
+BEGIN
+    declare q INT  ;
+    set q = (select count(tt_id) from t_test_taker where ts_id = inputdata AND us_username = inputUser AND tt_is_solved = '1');
+    RETURN(q);
+END
+$$ delimiter ;
+
+
+
+ delimiter $$
+CREATE FUNCTION getScore( inputdata INT, inputUser varchar(256) )
+RETURNS INT
+BEGIN
+    declare q INT  ;
+    set q = (select (as_hit_score+as_partial_score) as score from t_answer_sheet A LEFT JOIN t_test_taker B ON A.tt_id = B.tt_id where ts_id = inputdata AND us_username = inputUser);
+    RETURN(q);
+END
+$$ delimiter ;
+
+
 
