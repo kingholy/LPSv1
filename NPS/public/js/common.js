@@ -13,10 +13,10 @@ function getMenuName(progID)
 		menu_name = "&nbsp;HOME ";
 	}
 	else if(progID == "L020D010") {
-		menu_name = "&nbsp;학습 통계 ";
+		menu_name = "&nbsp;학습 현황 ";
 	}
 	else if(progID == "L020D020") {
-		menu_name = "&nbsp;학습자관리 ";
+		menu_name = "&nbsp;학습자별 학습 현황 ";
 	}
 	else if(progID == "L030D010") {
 		menu_name = "&nbsp;문항조회 ";
@@ -34,7 +34,7 @@ function getMenuName(progID)
 		menu_name = "&nbsp;단원별 문제 풀기 ";
 	}
 	else if(progID == "L040D030") {
-		menu_name = "&nbsp;문제풀이 결과확인 ";
+		menu_name = "&nbsp;단원별 코딩하기 ";
 	}
 	else if(progID == "L040D040") {
 		menu_name = "&nbsp;정규시험 ";

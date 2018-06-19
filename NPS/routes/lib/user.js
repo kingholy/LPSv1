@@ -23,7 +23,7 @@ module.exports =
 		user.last_name = 'A';
 		*/
 		/*
-		user.userId = 'sarah'; 
+		user.userId = 'Sarah'; 
 		user.privileges = 'S'; 
 		user.first_name = 'Sarah';
 		user.last_name = 'Kim';
@@ -34,6 +34,13 @@ module.exports =
 		user.first_name = '주형';
 		user.last_name = '조';
 		//*/
+		
+		/*
+		user.userId = 'manyGift'; 
+		user.privileges = 'S'; 
+		user.first_name = '다현';
+		user.last_name = '이';
+		*/
 		
 		console.log("user_name",user.userId)
 		console.log("user_privileges",user.privileges)

@@ -10,7 +10,7 @@ var conn = mysql.createConnection(dbconfig);
 
 ///////////////////////////////
 //get main categiry-list
-var mainCategories = global.mainCategories;
+var mainCategories ;
 
 var query = 
 	"SELECT 	dc_id, dc_category_name	"+

@@ -24,14 +24,14 @@
 		document.userPanel.submit();
 	}
 	
-	function goBackStudy(dc_id)
+	function goBackStudy()
 	{
-		document.location = "/L040D010";
+		document.location = "/L040D010/";
 	}
 	
-	function goBackList()
+	function goAnotherExam(dc_id)
 	{
-		document.location = "/L040D020/list";
+		document.location = "/L040D020/exam/"+dc_id;
 	}
 	
 </script>	
@@ -69,7 +69,7 @@
 						<input name ="ts_id" type="hidden" value="<%=ts_id %>" />
 						<input name ="dc_id" type="hidden" value="<%=dc_id %>" />
 						<input name ="qi_list" type="hidden" value="<%=qi_list %>" />
-							
+						<input name ="vOption" type="hidden" value="<%=vOption %>" />	
 						<!-- /////////////////////////////////////// -->
 					<%	
 						var iWidth = 600; 
@@ -191,6 +191,8 @@
 							yourColor	= (vAns[i])?"blue":"red";
 			 				yourResultLong = (vAns[i]==false && vItem[i].qi_question_type=="MC" )?
 								"정답은 "+vItem[i].qi_answer+"번 입니다. ":"";
+							yourResultLong = (vAns[i]==false && vItem[i].qi_question_type!="MC" )?
+								"정답은 "+vItem[i].qi_answer+" ":"";
 				 	%>
 				 	 
 						<tr> 
@@ -240,9 +242,17 @@
 					<tr>
 						<td width="50px"> </td>
 						<td height="40px">
+							<% if(vOption!='answer'){ %>
 							<input	type="button" value="답안 제출" 
 										onclick="doGetAnswer()" class="inputBTN" style="color:red" />
-							 
+							<% } %>
+							<% if(vOption=='answer'){ %>
+							<input	type="button" value="새로운 문제풀기" 
+										onclick="goAnotherExam(<%=dc_id %>)" class="inputBTN" style="color:gray" />
+							<input	type="button" value="교재 학습" 
+										onclick="goBackStudy()" class="inputBTN" style="color:gray" />
+							
+							<% } %>
 						</td>
 					</tr>
 				</table>		

@@ -6,10 +6,12 @@
 var express = require('express')
 	,routes = require('./routes')
 	,home = require('./routes/home')
-	,L040D010 = require('./routes/L040D010')
-	,L040D020 = require('./routes/L040D020')
+	,L020D010 = require('./routes/L020D010')
 	,L030D010 = require('./routes/L030D010')
 	,L030D020 = require('./routes/L030D020')
+	,L040D010 = require('./routes/L040D010')
+	,L040D020 = require('./routes/L040D020')
+	,L040D030 = require('./routes/L040D030')
 	,L050D010 = require('./routes/L050D010')
 	,L050D020 = require('./routes/L050D020')
 	,L050D021 = require('./routes/L050D021')
@@ -22,7 +24,7 @@ var express = require('express')
 var flash = require('connect-flash');
 
 var app = express();
-var app_port = 3000;
+var app_port = 80;
 
 global.global_title = 'Python 프로그래밍 학습 시스템';
 app.global_title = 'Python 프로그래밍 학습 시스템';
@@ -83,6 +85,12 @@ app.post('/login', routes.index);//call for login post
 
 app.get('/welcome', home.welcome);//call for  welcome page
 
+app.get('/L020D010', L020D010.index);
+app.get('/L020D010/index', L020D010.index);
+app.get('/L020D010/index/:id', L020D010.index);
+app.get('/L020D020', L020D010.list);
+app.get('/L020D020/list', L020D010.list);
+
 app.get('/L030D010', L030D010.list);
 app.get('/L030D010/list', L030D010.list);
 app.post('/L030D010/list', L030D010.list);
@@ -96,11 +104,18 @@ app.get('/L030D020/Item/:id', L030D020.Item);//call for login post
 
 app.get('/L040D010', L040D010.index);
 app.get('/L040D010/index', L040D010.index);
+//app.get('/paper/:param', L040D010.page);
 
 app.get('/L040D020', L040D020.list);
 app.get('/L040D020/list', L040D020.list);
 app.get('/L040D020/exam/:dc_id', L040D020.exam);
+app.post('/L040D020/exam/:dc_id', L040D020.exam);
 app.post('/L040D020/answer', L040D020.answer);
+app.get('/L040D030/exam/:dc_id', L040D030.exam);
+app.post('/L040D030/exam/:dc_id', L040D030.exam);
+app.post('/L040D030/answer', L040D030.answer);
+app.get('/L040D030/test', L040D030.test);
+
 
 app.get('/L050D010', L050D010.list);
 app.get('/L050D010/list', L050D010.list);
@@ -120,6 +135,9 @@ app.get('/L050D020/add/:ts_id', L050D020.add);
 app.post('/L050D020/add', L050D020.add);
 app.post('/L050D020/insert', L050D020.insert);
 app.post('/L050D020/delete/:qs_id', L050D020.delete);
+
+app.get('/L050D020/list', L050D020.list);
+//app.get('/L050D020/grade/:as_id', L050D020.grade);
 
 app.get('/L050D021/list', L050D021.list);
 

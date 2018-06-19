@@ -12,18 +12,21 @@
 	<script type="text/javascript">
 	function doMoveExam(dc_id)
 	{
-		
-		document.userPanel.action = "../L040D020?cmd=exam&dc_id="+dc_id+"&from=study";
-		document.userPanel.submit();
+		//alert(dc_id);
+		document.location = "/L040D020/exam/"+dc_id;
 	}
 	
 	function doMoveCoding(dc_id)
 	{
 		
-		document.userPanel.action = "../L040D030?cmd=exam&dc_id="+dc_id+"&from=study";
+		document.userPanel.action = "/L040D030/exam/"+dc_id;
 		document.userPanel.submit();
 	}
 	
+	function focusblurtest() {
+	  $('#textbox').focus(); 
+	}
+
 	</script>
 		
 	<SCRIPT type="text/javascript">

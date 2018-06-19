@@ -110,7 +110,12 @@
 					</td>
 					<td class='table-cell2'  style="text-align:left;">	
 						<!-- vList[i].qi_questionnarie.replace(/(?:\r\n|\r|\n)/g, '<br />') -->	   
-						<p > <%=vList[i].qi_questionnarie %>  </p>
+						<p> 
+							<%=vList[i].qi_questionnarie %>
+							<% if(vList[i].qi_answer_tip.length>1) { %>
+							</br> <%-vList[i].qi_answer_tip.replace(/(?:\r\n|\r|\n)/g, '<br />') %>
+							<% } %>
+						</p>
 					</td>
 					<td class='table-cell1'  style="text-align:center" > <%-getMenuDifficultyName(vList[i].qi_difficulty)%> </td>
 					<td class='table-cell-right2'  style="text-align:center">  <%=vList[i].qi_update %>   </td>

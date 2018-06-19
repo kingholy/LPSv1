@@ -31,6 +31,7 @@ exports.list = function(req, res){
 		"FROM		t_test_set " +
 		"WHERE		ts_test_type = 'O'; "
 		;
+	console.log(query);
 	conn.query(query, function(err, rows) 
 	{
 		if (err)	{	  
@@ -38,6 +39,7 @@ exports.list = function(req, res){
 		}
 		else {
 			  OTestList = rows;
+			  console.log(rows);
 		}
 		res.render('L050D010/list', 
 		{ 
@@ -334,7 +336,7 @@ exports.answer = function(req, res){
 						console.log('isCorrect',isCorrect);
 						vAns.push(isCorrect);
 						score = (isCorrect==true)?100:0;
-						partial = 0;
+						partial = (qType=='VL')?-1: 0; //논술형이면 -1
 						//////////////////////
 						query1 = 
 						"INSERT INTO T_ANSWER_SHEET(TT_ID, QI_ID, AS_ANSWER_TEXT, AS_ANSWER_CHOICE,  AS_HIT_SCORE, AS_PARTIAL_SCORE )" + 
@@ -350,6 +352,7 @@ exports.answer = function(req, res){
 					}
 					console.log('vItem',vItem);
 					console.log('vAns',vAns);
+					console.log('query',query);
 					conn.query(query, function(err2, result2, fields2) 
 					{
 						if(err2) {

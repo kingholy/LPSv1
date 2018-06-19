@@ -48,6 +48,45 @@ conn.query(query, function(err, rows, fields) {
 	}
 });
 
+
+
+
+/////////////////////////////////////////////////////////////////////////
+//정규시험 리스트 
+exports.list = function(req, res){
+	var user = lib.getUserData(req);
+	var OTestList = new Array();
+	var query = 
+		"SELECT 	" +
+		"	tt_id, ts_title, ts_test_type, ts_time_limit, us_username,"+
+		"	tt_is_solved, "+
+		"	getScoreTT(tt_id) as nScore, "+
+		"	getRemainTT(tt_id) as nRemain, "+
+		"	DATE_FORMAT(take_at,'%Y-%m-%d') AS take_at ,"+
+		"	DATE_FORMAT(tt_solved_at,'%Y-%m-%d') AS tt_solved_at "+
+		"FROM		t_test_taker A LEFT JOIN t_test_set B ON A.ts_id = B.ts_id " +
+		"WHERE		ts_test_type = 'O' AND us_username<>'admin' ORDER BY A.ts_id, tt_id; "
+		;
+	conn.query(query, function(err, rows) 
+	{
+		if (err)	{	  
+			console.log('Error while performing Query.', err); 		  
+		}
+		else {
+			console.log(rows);
+			OTestList = rows;
+		}
+		res.render('L050D020/list', 
+			{ 
+			user:user,
+			vList: OTestList 		
+		});
+	});
+
+
+};
+
+
 /////////////////////////////////////////////////////////////////////////
 //
 exports.insert = function(req, res){
@@ -111,7 +150,8 @@ exports.add = function(req, res){
 		"	qi_total_choice_count, " + 
 		"	DATE_FORMAT(qi_update,'%Y-%m-%d') as qi_update " + 
 		"FROM		T_QUESTION_ITEM A   LEFT JOIN	T_QUESTION_RANGE  B    ON A.qi_id=B.qi_id  " + 
-		"WHERE		B.dc_id = "+ dc_id + " " + 
+		"WHERE		B.dc_id = "+ dc_id + " AND "+ 
+		"			A.qi_id not in (select qi_id from t_question_set where ts_id =  "+ts_id+") " + 
 		"ORDER BY	qi_question_type, qi_difficulty, A.qi_id; "
 	;
 	
@@ -314,9 +354,9 @@ exports.create = function(req, res){
 			"INSERT INTO t_test_set " + 
 			"( ts_title, ts_test_type, ts_madeby_who , ts_time_limit ) " +
 			"VALUES ( " + 
-			"'" + post.ts_title.replaceAll(/'/g,"''") 		+ "', " + 
-			"'" + post.ts_test_type.replaceAll(/'/g,"''") 	+ "', " + 
-			"'" + post.ts_madeby_who.replaceAll(/'/g,"''") 	+ "', " + 
+			"'" + post.ts_title.replace(/'/g,"''") 		+ "', " + 
+			"'" + post.ts_test_type.replace(/'/g,"''") 	+ "', " + 
+			"'" + post.ts_madeby_who.replace(/'/g,"''") 	+ "', " + 
 			""+ post.ts_time_limit + "); " 
 			;
 			console.log("query1:",query1);

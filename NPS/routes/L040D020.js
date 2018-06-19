@@ -20,14 +20,14 @@ var query =
 "ORDER BY	DC_MAIN_CATEGORY, DC_SUB_CATEGORY, DC_CATEGORY_TYPE " ;
 
 conn.query(query, function(err, rows) {
-if (!err)	{
-  if(rows) {
-	  mainCategories = rows;
-  }
-}
-else		{
-  console.log('Error while performing Query.', err);
-}
+	if (!err)	{
+	  if(rows) {
+		  mainCategories = rows;
+	  }
+	}
+	else		{
+	  console.log('Error while performing Query.', err);
+	}
 });
 
 ///////////////////////////////
@@ -120,7 +120,9 @@ exports.exam = function(req, res){
 				  	"	ON A.qi_id=B.qi_id " +
 				  	"	WHERE B.dc_id = " +dc_id+ " AND A.qi_question_type <> 'VL' "+ 
 				  	"	order by rand() limit 3 " + 
-				  	")A;"
+				  	")A;"	+
+				  	"INSERT INTO T_TEST_SET_RANGE (ts_id, dc_id) " +
+				  	"VALUES ( "+ ts_id +"," + dc_id +" ); "
 					;
 					
 				var query2 = 
@@ -159,8 +161,8 @@ exports.exam = function(req, res){
 					  	});
 					}
 					else {		
-						console.log("rows1:",rows1);
-						vItem = rows1[1];
+						console.log("<<<<rows1:",rows1);
+						vItem = rows1[2];
 						////////////////////////// vList만들고, vItem 인덱스 만들기
 						var qiIndex = {};
 						//var tempQiId;

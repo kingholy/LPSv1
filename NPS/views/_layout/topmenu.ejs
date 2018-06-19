@@ -10,11 +10,15 @@
 		  
 		  
 		<li>
-			<a href="/L020D010/mystate">학습현황</a>			
+												<% if(user.privileges =='T') { %>
+			<a href="/L020D020/list">학습현황</a>	
+													<% }else{ %>
+			<a href="/L020D010/index">학습현황</a>	
+													<% } %>		
 			<ul>
 				
 															<% if(getTop(user,'L020D010')) { %>		
-				<li><a href="/L020D010/my">나의 학습현황</a></li> 			
+				<li><a href="/L020D010/index">나의 학습현황</a></li> 			
 															<% } %>
 															<% if(getTop(user,'L020D020')) { %>		
 				<li><a href="/L020D020/list">학습자별 학습현황</a></li> 		
@@ -43,7 +47,7 @@
 			<ul> 
 				<li><a href="/L040D010/index">교재학습</a></li>
 				<li><a href="/L040D020/list">단원별 문제풀기</a></li>
-				<li><a href="/L040D030/show_result">문제풀이결과 확인</a></li>
+				<li><a href="/L040D030/list">단원별 코딩하기</a></li>
 			</ul>
 		</li>
 		
@@ -56,7 +60,7 @@
 			<% if(getTop(user,'L050D020')) { %>					
 				<li><a href="/L050D020/create">정규시험지 작성</a></li>
 				<li><a href="/L050D021/list">정규시험지 확인</a></li>
-				<li><a href="/L050D020/grade">성적처리 및 확인</a></li>
+				<li><a href="/L050D020/list">성적처리 및 확인</a></li>
 			<% } %>
 			<% if(getTop(user,'L050D010')) { %>			
 				<li><a href="/L050D010/list">정규시험</a></li>
