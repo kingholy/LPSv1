@@ -1,5 +1,15 @@
 
+delimiter $$
+CREATE FUNCTION getStrCount ( inputdata varchar(2048), searchStr varchar(12) )
+RETURNS INT
+BEGIN
+    declare q INT  ;
+    set q = (length(inputdata) - length(replace(inputdata,searchStr,'')))/length(searchStr);
+    RETURN(q+1);
+END
+$$ delimiter ;
 
+//////////////////////////////////////////////////////////////////////
 CREATE OR REPLACE PROCEDURE PROC_GET_AUTOTESTSET
   (
   	dc_id_in IN NUMBER,    -- NUMBER 타입의 입력받은 파라미터
@@ -67,3 +77,4 @@ END;
 
 COMMIT;
  
+//////////////////////////////////////////////////////////////////////

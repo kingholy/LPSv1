@@ -1,0 +1,117 @@
+<% include ../_layout/head.ejs %>
+
+<script type="text/javascript">
+	function doMove(userId)
+	{
+		document.location = "/L020D010/index/"+userId;
+	}
+	
+</script>
+		
+<form name="userPanel" method='post'> 
+			
+	<!--  =========================================================================   -->
+	
+	<table class="default" width="100%" style="vertical-align:top;" border="0" cellspacing="0" cellpadding="0" >
+		<colgroup>
+			<col width="100" />
+			<col width="" />		
+		</colgroup>
+		<tr style="height:28px;">
+			<td class='default tbc_lv1 p_l20' style="text-align:left;border-right:none" >
+				<span class="view-title">  
+					<SCRIPT language=JavaScript> getMenuName("L020D020"); </SCRIPT> 
+				</span>
+			</td> 
+			<td> </td>
+		</tr>
+		
+		
+		<!--  =========================================================================   -->
+	
+		<tr style="height:30px"> <td width="850px" colspan="3">
+				
+				<table width="100%" > 
+					<colgroup>	
+						<col width="70" />			
+						<col width="300" />
+						<col width="200" />	
+						<col width="" />
+					</colgroup> 		
+					<tr> 
+						<td>  </td> 
+						<td>  
+							 
+						</td> 
+						<td align="left">  
+						 </td>
+						<td >  </td>
+					</tr>
+					
+				</table>
+				
+			</td>
+		</tr>
+	</table>
+	
+	
+	<!--  =========================================================================   -->
+	<% 	var sWidth = "600px"; %>
+	<table > 
+	<tr> 
+	<td style="padding-left:5px"> 
+		<table class="default" >
+			<tr><td width="<%=sWidth %>">
+				
+				
+				<table width="<%=sWidth %>" border="0" cellspacing="0" cellpadding="0" >
+					<colgroup>
+						<col width="30" /> 
+						<col width="120" /> 
+						<col width="200" />
+						<col width="100" />
+						<col width="" /> 
+					</colgroup>
+					<tr>
+						<td class='table-col-header' >NO</td>
+						<td class='table-col-header' style="BORDER-LEFT: #B4B4B4 1px solid;">이름</td> 							
+						<td class='table-col-header' style="BORDER-LEFT: #B4B4B4 1px solid;">최근 학습단원</td> 							
+						<td class='table-col-header' style="BORDER-LEFT: #B4B4B4 1px solid;">최근 풀이점수</td>
+						<td class='table-col-header' style="BORDER-LEFT: #B4B4B4 1px solid;">단원별 현황</td>
+						<td> </td>
+					</tr>
+					
+					<%
+					for (i in vList)	{								
+					%>			
+					<tr class="table-cell">
+						<td class='table-cell-left1'  style="text-align:center"  > 
+							<%=(parseInt(i)+1)%>
+						</td>
+						<td class='table-cell2'  style="text-align:center" > 
+							<%=vList[i].us_last_name%> <%=vList[i].us_first_name%> 
+						</td>
+						<td class='table-cell1'  style="text-align:left;padding-left:20px;" > 
+							<%=vList[i].dc_name_last%>
+						</td>
+						<td class='table-cell2'  style="text-align:center"> 
+							<%=vList[i].score_last.replace('.00','')%>
+						</td>
+						<td class='table-cell-right1'  style="text-align:center" > 
+							 
+							 <input type="button" value="단원별 학습현황 보기" onclick="doMove('<%=vList[i].us_username%>');" class="button-item-detail" />
+						</td>
+						
+					</tr>
+					<%	}; %>
+				</table>
+				<input name ="qi_id" type="hidden"  value="" >
+			</td></tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</form>
+
+
+<% include ../_layout/foot.ejs %>
